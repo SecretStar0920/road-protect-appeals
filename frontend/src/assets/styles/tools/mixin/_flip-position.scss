@@ -1,0 +1,18 @@
+// - Position
+@mixin flip-position($dir, $value: 0) {
+    @if $dir == 'start' {
+        [dir='rtl'] & {
+            right: $value;
+        }
+        [dir='ltr'] & {
+            left: $value;
+        }
+    } @else if $dir == 'end' {
+        [dir='rtl'] & {
+            left: $value;
+        }
+        [dir='ltr'] & {
+            right: $value;
+        }
+    }
+}

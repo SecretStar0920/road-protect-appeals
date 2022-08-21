@@ -1,0 +1,79 @@
+<div class="mdl-wizard-head">
+    <div class="user-head">
+        <div class="avatar avatar--user">
+            <svg-icon src="{{ imgPathService?.userIcon }}" class="icon icon--user"></svg-icon>
+        </div>
+    </div>
+    <div class="mdl-page-headlines">
+        <h1 class="title primary">נשמח להכיר</h1>
+        <h2 class="subtitle">מה השם והטלפון?</h2>
+    </div>
+</div>
+<form [formGroup]="formGroup" class="form-container form-container--condensed-min-lg column-grow">
+    <div class="form-body">
+        <div class="form-row">
+            <div class="form-field">
+                <label class="form-label">
+                    <div class="form-label__text">שם פרטי</div>
+                    <mat-form-field appearance="outline">
+                        <input type="text" matInput formControlName="firstName" maxlength="20" autofocus />
+                        <mat-error>יש להקליד שם פרטי בעברית</mat-error>
+                    </mat-form-field>
+                </label>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-field">
+                <label class="form-label">
+                    <div class="form-label__text">שם משפחה</div>
+                    <mat-form-field appearance="outline">
+                        <input type="text" matInput formControlName="lastName" maxlength="20" />
+                        <mat-error>יש להקליד שם משפחה בעברית</mat-error>
+                    </mat-form-field>
+                </label>
+            </div>
+        </div>
+
+        <div class="form-row form-row--reverse">
+            <div class="form-field form-field--prefix form-field--no-label">
+                <label class="form-label">
+                    <mat-form-field appearance="outline">
+                        <mat-select class="custom-select" matNativeControl formControlName="phonePrefix">
+                            <mat-option *ngFor="let item of phonePrefixArray" value="{{ item }}">
+                                {{ item }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </label>
+            </div>
+            <div class="form-field">
+                <label class="form-label">
+                    <div class="form-label__text">מספר נייד</div>
+                    <mat-form-field appearance="outline">
+                        <input
+                            maxlength="7"
+                            oninput="this.value = enableOnlyNumbers(this.value)"
+                            type="tel"
+                            matInput
+                            formControlName="phone"
+                        />
+                        <mat-error>יש להקליד מספר נייד</mat-error>
+                        <mat-hint class="m-b-2">מבטיחים שלא נטריד*</mat-hint>
+                    </mat-form-field>
+                </label>
+            </div>
+        </div>
+        <div class="m-t-2">
+            <mat-checkbox class="checkbox" formControlName="allowMarketingContent">מאשר קבלת תוכן שיווקי</mat-checkbox>
+        </div>
+        <div class="m-t-2 m-b-2">
+            <mat-checkbox class="checkbox" formControlName="tncAgreement"
+                >קראתי את <a (click)="goToTermsAndConditions()">התקנון</a>&nbsp;ואני רוצה להמשיך
+            </mat-checkbox>
+        </div>
+    </div>
+    <div class="mdl-page-footer">
+        <rp-button type="submit" [onClick]="onSubmit.bind(this)" [disabled]="!isFormValid">שלח קוד אימות</rp-button>
+    </div>
+</form>

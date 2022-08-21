@@ -1,0 +1,1500 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "All API",
+    "description": "TODO: Add Description",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://example.com",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/api/login": {
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "GetAuthorizationToken",
+        "description": "TODO: Add Description",
+        "operationId": "GetAuthorizationToken",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetAuthorizationTokenRequest"
+              },
+              "example": {
+                "username": "קוד_אואזיס_0507406078",
+                "password": "0507406078"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/oldCustomer/getCustomer": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "getCustomer",
+        "description": "TODO: Add Description",
+        "operationId": "GetCustomer",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "קוד_אואזיס_0507406067"
+            }
+          },
+          {
+            "name": "ticketSystem",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "RoadProtectIL"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/OldCustomer/getTicketHistory": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "GetTicketHistory",
+        "description": "TODO: Add Description",
+        "operationId": "GetTicketHistory",
+        "parameters": [
+          {
+            "name": "customerId",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 35
+            }
+          },
+          {
+            "name": "ticketSystem",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "RoadProtectIL"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/OldPublic/addLeadTicket": {
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "AddLeadTicket",
+        "description": "TODO: Add Description",
+        "operationId": "AddLeadTicket",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "application/x-www-form-urlencoded"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": [
+                  "firstName",
+                  "lastName",
+                  "mobile",
+                  "ticketSystem"
+                ],
+                "type": "object",
+                "properties": {
+                  "firstName": {
+                    "type": "string",
+                    "example": "Sample"
+                  },
+                  "lastName": {
+                    "type": "string",
+                    "example": "Lead"
+                  },
+                  "mobile": {
+                    "type": "string",
+                    "example": "0829219880"
+                  },
+                  "ticketSystem": {
+                    "type": "string",
+                    "example": "RoadProtectIL"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/Public/getCourthouseList": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "getCourthouseList",
+        "description": "TODO: Add Description",
+        "operationId": "GetCourthouseList",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 0
+            }
+          },
+          {
+            "name": "totalInstitutes25",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/Ticket/getTicket": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "getTicket",
+        "description": "TODO: Add Description",
+        "operationId": "GetTicket",
+        "parameters": [
+          {
+            "name": "ticketId",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 379
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/OldTicket/addTicket": {
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "AddTicket",
+        "description": "TODO: Add Description",
+        "operationId": "AddTicket",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddTicketRequest"
+              },
+              "example": {
+                "citationNo": "98798911935",
+                "country": "3",
+                "licensePlate": "4819033",
+                "courthouse": "10",
+                "violationDate": "2019-08-11 18:04:43",
+                "violationCodes": "11043",
+                "institutionId": "1",
+                "modelCode": "Ceed",
+                "makeCode": "Kia",
+                "modelType": "Ceed",
+                "vehicleMake": "Kia",
+                "vehicleYear": "2011",
+                "ticketStatus": "34",
+                "city": "תל אביב - יפו",
+                "address": "שדרות רוטשילד 98",
+                "violationId": "10001",
+                "customerId": "71",
+                "ticketSystem": "RoadProtectIL",
+                "amount": "250",
+                "currency": "ILS",
+                "questionsAndAnswers": [
+                  [
+                    "topicId-001",
+                    "reasonId-001",
+                    "7"
+                  ],
+                  [
+                    "topicId-001",
+                    "reasonId-002",
+                    "reasonId-002-043",
+                    "answerId-002-043-1",
+                    "16"
+                  ],
+                  [
+                    "topicId-001",
+                    "reasonId-003",
+                    "reasonId-003-043",
+                    "answerId-003-043-1",
+                    "16"
+                  ]
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/Ticket/updateTicket": {
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "updateTicket",
+        "description": "TODO: Add Description",
+        "operationId": "UpdateTicket",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/updateTicketRequest"
+              },
+              "example": {
+                "ticketType": null,
+                "citationNo": "987987",
+                "country": "3",
+                "licensePlate": "4819033",
+                "courthouse": null,
+                "violationDate": "2019-08-11 18:04:43",
+                "violationCodes": null,
+                "institutionId": "1",
+                "modelCode": "Ceed",
+                "makeCode": "Kia",
+                "modelType": "Ceed",
+                "vehicleMake": "Kia",
+                "vehicleYear": "2011",
+                "ticketStatus": 40,
+                "city": "תל אביב - יפו",
+                "address": "שדרות רוטשילד 98",
+                "violationId": "10001",
+                "customerId": "35",
+                "ticketSystem": "RoadProtectIL",
+                "transactionState": 40,
+                "amount": "280",
+                "currency": "ILS",
+                "id": "455",
+                "hasMembership": false,
+                "finished": false
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/Ticket/getTicketDocumentTypeList": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "getTicketDocumentTypeList",
+        "description": "TODO: Add Description",
+        "operationId": "GetTicketDocumentTypeList",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 0
+            }
+          },
+          {
+            "name": "totalInstitutes",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/Ticket/listTicketsDocumentsByTicketId": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "listTicketsDocumentsByTicketId",
+        "description": "TODO: Add Description",
+        "operationId": "ListTicketsDocumentsByTicketId",
+        "parameters": [
+          {
+            "name": "ticketId",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 42
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/Ticket/uploadTicketDocument": {
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "uploadTicketDocument",
+        "description": "TODO: Add Description",
+        "operationId": "UploadTicketDocument",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/uploadTicketDocumentRequest"
+              },
+              "example": {
+                "ticketId": 42,
+                "ticketDocumentBase64": "iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAb1BMVEX///8AAABQUFCioqJKSkp5eXmdnZ0oKCjr6+uKioq8vLze3t5bW1vn5+ezs7PT09OUlJQ5OTkuLi4eHh54eHg2Nja+vr5paWlubm7Ly8vR0dEVFRW9vb1AQECZmZmGhoYLCwv29varq6sSEhJhYWHHkF97AAADLUlEQVR4nO3d7VbaQBRGYcKHBAIBBFG0VlHv/xoLyKoiYXVOOe8cavfz27OYLclM4h9bLQAAAAC4KGU9aM/657vp9uoqOuZYOZ0XrnqXFVktfPN23ibRWR+mgr6txTq67N24LwrcuI+O21rp+jbq6LxWaykNLIqX6MB7cWD4t1jKA4sidkt9zFD4EBl4lbTEblU2eklMfIoLTLxGT275s8TEuMebXtoCT+4VD4mFo5xRn6VuM6+9QaN24nzcZqN6WDt2F1SYepE5iHlAneQLDDr2812kmzepkMLrjIVFSGHOwJAjMedtWBTLgEL1a9OhiJeoOmthxLNp6nOzj9uAws7+s3ta+z9StgMLxR/T/vaFXQp1KHRCoRCFTigUotAJhUIUOqFQiEInFApR6IRCIQqdUChEoRMKhSh0QqEQhU4oFKLQCYVCFDqhUIhCJxQKUeiEQiEKnVAoRKETCoUodEKhEIVOKBSi0AmFQhQ6oVCIQicUClHohEIhCp1QKEShEwqFKHRCoRCFTigUotAJhUIUOqFQiEInFApR6IRCIQqdUChEoRMKhSh0QqEQhU4oFKLQCYVCFDqhUIhCJxQKUeiEQiEKnVAoRKETCoUodEKhEIVOKBSi0AmFQhQ6oVCIQicUCmUqvID/6dy5UupcxxfmQSGFFFKYqj+o63o6+7aFo2o/Or79noUvn4aH/0JhbVzj8GB6ZZx+u/zCznnjdwGFS9MKj6+ykWl+GlBYmVa4Opq/N83XAYUtywL7DfPX5/2GMrAca7cN83eWwux1W1PDAn82zFuOm8fsdVsTwwq/7qRbPwzzV9nrdh7SV9i0FVpO/XH2uB3DZdp0Hw7Sx0fZ296N05c4axhvp48vs7ftLdLXWB0Nl+nDMfuMcZGLo2HDNR72FZpWOfkyangkiroLd26SlzkvDwbX/fTCdVDcjmGzOUgsDY9sw5OfnoXlDWP4V1NBh/0Hy7n92KnG5bjqdA0zEa9NZyRuPNt+vOmBNruJcdEWwffgb4aT36Rd/vmzM1lZ7qxU/ZD3+pNWpvfZBKNh6DHYaDloz18d2p7n3af68vIAAAAA/N9+ASPSNE8ENa/ZAAAAAElFTkSuQmCC",
+                "ticketDocumentMimeType": "image/png",
+                "documentDescription": "Test Description",
+                "documentTypeCode": 1060
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/Customer/getCustomer": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "getCustomer2",
+        "description": "TODO: Add Description",
+        "operationId": "GetCustomer2",
+        "parameters": [
+          {
+            "name": "customerId",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 33
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/oldCustomer/updateCustomerProfile": {
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "updateCustomerProfile",
+        "description": "TODO: Add Description",
+        "operationId": "UpdateCustomerProfile",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/updateCustomerProfileRequest"
+              },
+              "example": {
+                "firstName": "דערוק",
+                "lastName": "מעיער",
+                "mobileNumber": "(111)111-5566",
+                "email": "sample@email.com",
+                "address": "sampleAddress",
+                "city": "sampleCity",
+                "customerId": "33",
+                "israelIdNumber": "1234567891235"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/oldPublic/addUser": {
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "AddUser",
+        "description": "TODO: Add Description",
+        "operationId": "AddUser",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddUserRequest"
+              },
+              "example": {
+                "firstName": "קוד",
+                "lastName": "אואזיס",
+                "mobileNumber": "0507406078",
+                "email": "code@oasis.com",
+                "address": "אבא אבן 16",
+                "city": "הרצליה",
+                "ticketSystemName": "RoadProtectIL",
+                "israelIdNumber": "987654324"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/OldTicket/produceQuestion": {
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "produceQuestion",
+        "description": "TODO: Add Description",
+        "operationId": "ProduceQuestion",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "application/x-www-form-urlencoded"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": [
+                  "violationId",
+                  "direction",
+                  "ticketId"
+                ],
+                "type": "object",
+                "properties": {
+                  "violationId": {
+                    "type": "string",
+                    "example": "topicId-001"
+                  },
+                  "direction": {
+                    "type": "string",
+                    "example": "forward"
+                  },
+                  "ticketId": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 33
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/OldTicket/produceAnswers": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "produceAnswers",
+        "description": "TODO: Add Description",
+        "operationId": "ProduceAnswers",
+        "parameters": [
+          {
+            "name": "question",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "reasonId-001"
+            }
+          },
+          {
+            "name": "ticketId",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 33
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/Ticket/getAllTicketQuestionsAndAnswers": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "getAllTicketQuestionsAndAnswers",
+        "description": "TODO: Add Description",
+        "operationId": "GetAllTicketQuestionsAndAnswers",
+        "parameters": [
+          {
+            "name": "ticketId",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 33
+            }
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "{{token}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/Ticket/deleteTicketDocumentsByDocumentId": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "deleteTicketDocumentsByDocumentId",
+        "description": "TODO: Add Description",
+        "operationId": "DeleteTicketDocumentsByDocumentId",
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1
+            }
+          },
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "{{token}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/Ticket/getTicketDefenceParagraphs": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "getTicketDefenceParagraphs",
+        "description": "getTicketDefenceParagraphs",
+        "operationId": "GetTicketDefenceParagraphs",
+        "parameters": [
+          {
+            "name": "ticketId",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 33
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/Ticket/generateTicketDefense": {
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "generateTicketDefense",
+        "description": "generateTicketDefense",
+        "operationId": "GenerateTicketDefense",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/generateTicketDefenseRequest"
+              },
+              "example": {
+                "ticketId": "33",
+                "customParagraphs": "כתב יד חלש/לא ברור\n1.   לאור העובדה כי פקח העירייה רשם את הדו\"ח בכתב יד חלש, הרי שנוצר לי נזק ממשי ליכולתי הן להבין את פשר הדו\"ח ופרטים מהותיים לגביו.\n2.   אשר על כן, לאור העובדה שפגם מהותי זה המביא לכך שלמעשה אין ביכולתי להתגונן מפני דו\"ח חנייה שהינו שימוש בסמכות אכיפה מנהלית, מן הראוי להביא לביטול הדו\"ח בגין עילה זו"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/Ticket/getTicketStatusList": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "getTicketStatusList",
+        "description": "TODO: Add Description",
+        "operationId": "GetTicketStatusList",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 0
+            }
+          },
+          {
+            "name": "totalInstitutes",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/Ticket/deleteTickets": {
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "deleteTickets",
+        "description": "TODO: Add Description",
+        "operationId": "DeleteTickets",
+        "parameters": [
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "{{token}}"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "description": ""
+              },
+              "example": [
+                455,
+                456
+              ]
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/Customer/deleteCustomers": {
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "deleteCustomers",
+        "description": "TODO: Add Description",
+        "operationId": "DeleteCustomers",
+        "parameters": [
+          {
+            "name": "X-Auth-Token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "{{token}}"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "description": ""
+              },
+              "example": [
+                88
+              ]
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "GetAuthorizationTokenRequest": {
+        "title": "GetAuthorizationTokenRequest",
+        "required": [
+          "username",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "username": "קוד_אואזיס_0507406078",
+          "password": "0507406078"
+        }
+      },
+      "AddTicketRequest": {
+        "title": "AddTicketRequest",
+        "required": [
+          "citationNo",
+          "country",
+          "licensePlate",
+          "courthouse",
+          "violationDate",
+          "violationCodes",
+          "institutionId",
+          "modelCode",
+          "makeCode",
+          "modelType",
+          "vehicleMake",
+          "vehicleYear",
+          "ticketStatus",
+          "city",
+          "address",
+          "violationId",
+          "customerId",
+          "ticketSystem",
+          "amount",
+          "currency",
+          "questionsAndAnswers"
+        ],
+        "type": "object",
+        "properties": {
+          "citationNo": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "licensePlate": {
+            "type": "string"
+          },
+          "courthouse": {
+            "type": "string"
+          },
+          "violationDate": {
+            "type": "string"
+          },
+          "violationCodes": {
+            "type": "string"
+          },
+          "institutionId": {
+            "type": "string"
+          },
+          "modelCode": {
+            "type": "string"
+          },
+          "makeCode": {
+            "type": "string"
+          },
+          "modelType": {
+            "type": "string"
+          },
+          "vehicleMake": {
+            "type": "string"
+          },
+          "vehicleYear": {
+            "type": "string"
+          },
+          "ticketStatus": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "violationId": {
+            "type": "string"
+          },
+          "customerId": {
+            "type": "string"
+          },
+          "ticketSystem": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "string"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "questionsAndAnswers": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "example": {
+          "citationNo": "98798911935",
+          "country": "3",
+          "licensePlate": "4819033",
+          "courthouse": "10",
+          "violationDate": "2019-08-11 18:04:43",
+          "violationCodes": "11043",
+          "institutionId": "1",
+          "modelCode": "Ceed",
+          "makeCode": "Kia",
+          "modelType": "Ceed",
+          "vehicleMake": "Kia",
+          "vehicleYear": "2011",
+          "ticketStatus": "34",
+          "city": "תל אביב - יפו",
+          "address": "שדרות רוטשילד 98",
+          "violationId": "10001",
+          "customerId": "71",
+          "ticketSystem": "RoadProtectIL",
+          "amount": "250",
+          "currency": "ILS",
+          "questionsAndAnswers": [
+            [
+              "topicId-001",
+              "reasonId-001",
+              "7"
+            ],
+            [
+              "topicId-001",
+              "reasonId-002",
+              "reasonId-002-043",
+              "answerId-002-043-1",
+              "16"
+            ],
+            [
+              "topicId-001",
+              "reasonId-003",
+              "reasonId-003-043",
+              "answerId-003-043-1",
+              "16"
+            ]
+          ]
+        }
+      },
+      "updateTicketRequest": {
+        "title": "updateTicketRequest",
+        "required": [
+          "ticketType",
+          "citationNo",
+          "country",
+          "licensePlate",
+          "courthouse",
+          "violationDate",
+          "violationCodes",
+          "institutionId",
+          "modelCode",
+          "makeCode",
+          "modelType",
+          "vehicleMake",
+          "vehicleYear",
+          "ticketStatus",
+          "city",
+          "address",
+          "violationId",
+          "customerId",
+          "ticketSystem",
+          "transactionState",
+          "amount",
+          "currency",
+          "id",
+          "hasMembership",
+          "finished"
+        ],
+        "type": "object",
+        "properties": {
+          "ticketType": {
+            "type": "string",
+            "nullable": true
+          },
+          "citationNo": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "licensePlate": {
+            "type": "string"
+          },
+          "courthouse": {
+            "type": "string",
+            "nullable": true
+          },
+          "violationDate": {
+            "type": "string"
+          },
+          "violationCodes": {
+            "type": "string",
+            "nullable": true
+          },
+          "institutionId": {
+            "type": "string"
+          },
+          "modelCode": {
+            "type": "string"
+          },
+          "makeCode": {
+            "type": "string"
+          },
+          "modelType": {
+            "type": "string"
+          },
+          "vehicleMake": {
+            "type": "string"
+          },
+          "vehicleYear": {
+            "type": "string"
+          },
+          "ticketStatus": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "city": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "violationId": {
+            "type": "string"
+          },
+          "customerId": {
+            "type": "string"
+          },
+          "ticketSystem": {
+            "type": "string"
+          },
+          "transactionState": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "amount": {
+            "type": "string"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "hasMembership": {
+            "type": "boolean"
+          },
+          "finished": {
+            "type": "boolean"
+          }
+        },
+        "example": {
+          "ticketType": null,
+          "citationNo": "987987",
+          "country": "3",
+          "licensePlate": "4819033",
+          "courthouse": null,
+          "violationDate": "2019-08-11 18:04:43",
+          "violationCodes": null,
+          "institutionId": "1",
+          "modelCode": "Ceed",
+          "makeCode": "Kia",
+          "modelType": "Ceed",
+          "vehicleMake": "Kia",
+          "vehicleYear": "2011",
+          "ticketStatus": 40,
+          "city": "תל אביב - יפו",
+          "address": "שדרות רוטשילד 98",
+          "violationId": "10001",
+          "customerId": "35",
+          "ticketSystem": "RoadProtectIL",
+          "transactionState": 40,
+          "amount": "280",
+          "currency": "ILS",
+          "id": "455",
+          "hasMembership": false,
+          "finished": false
+        }
+      },
+      "uploadTicketDocumentRequest": {
+        "title": "uploadTicketDocumentRequest",
+        "required": [
+          "ticketId",
+          "ticketDocumentBase64",
+          "ticketDocumentMimeType",
+          "documentDescription",
+          "documentTypeCode"
+        ],
+        "type": "object",
+        "properties": {
+          "ticketId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ticketDocumentBase64": {
+            "type": "string"
+          },
+          "ticketDocumentMimeType": {
+            "type": "string"
+          },
+          "documentDescription": {
+            "type": "string"
+          },
+          "documentTypeCode": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "ticketId": 42,
+          "ticketDocumentBase64": "iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAb1BMVEX///8AAABQUFCioqJKSkp5eXmdnZ0oKCjr6+uKioq8vLze3t5bW1vn5+ezs7PT09OUlJQ5OTkuLi4eHh54eHg2Nja+vr5paWlubm7Ly8vR0dEVFRW9vb1AQECZmZmGhoYLCwv29varq6sSEhJhYWHHkF97AAADLUlEQVR4nO3d7VbaQBRGYcKHBAIBBFG0VlHv/xoLyKoiYXVOOe8cavfz27OYLclM4h9bLQAAAAC4KGU9aM/657vp9uoqOuZYOZ0XrnqXFVktfPN23ibRWR+mgr6txTq67N24LwrcuI+O21rp+jbq6LxWaykNLIqX6MB7cWD4t1jKA4sidkt9zFD4EBl4lbTEblU2eklMfIoLTLxGT275s8TEuMebXtoCT+4VD4mFo5xRn6VuM6+9QaN24nzcZqN6WDt2F1SYepE5iHlAneQLDDr2812kmzepkMLrjIVFSGHOwJAjMedtWBTLgEL1a9OhiJeoOmthxLNp6nOzj9uAws7+s3ta+z9StgMLxR/T/vaFXQp1KHRCoRCFTigUotAJhUIUOqFQiEInFApR6IRCIQqdUChEoRMKhSh0QqEQhU4oFKLQCYVCFDqhUIhCJxQKUeiEQiEKnVAoRKETCoUodEKhEIVOKBSi0AmFQhQ6oVCIQicUClHohEIhCp1QKEShEwqFKHRCoRCFTigUotAJhUIUOqFQiEInFApR6IRCIQqdUChEoRMKhSh0QqEQhU4oFKLQCYVCFDqhUIhCJxQKUeiEQiEKnVAoRKETCoUodEKhEIVOKBSi0AmFQhQ6oVCIQicUCmUqvID/6dy5UupcxxfmQSGFFFKYqj+o63o6+7aFo2o/Or79noUvn4aH/0JhbVzj8GB6ZZx+u/zCznnjdwGFS9MKj6+ykWl+GlBYmVa4Opq/N83XAYUtywL7DfPX5/2GMrAca7cN83eWwux1W1PDAn82zFuOm8fsdVsTwwq/7qRbPwzzV9nrdh7SV9i0FVpO/XH2uB3DZdp0Hw7Sx0fZ296N05c4axhvp48vs7ftLdLXWB0Nl+nDMfuMcZGLo2HDNR72FZpWOfkyangkiroLd26SlzkvDwbX/fTCdVDcjmGzOUgsDY9sw5OfnoXlDWP4V1NBh/0Hy7n92KnG5bjqdA0zEa9NZyRuPNt+vOmBNruJcdEWwffgb4aT36Rd/vmzM1lZ7qxU/ZD3+pNWpvfZBKNh6DHYaDloz18d2p7n3af68vIAAAAA/N9+ASPSNE8ENa/ZAAAAAElFTkSuQmCC",
+          "ticketDocumentMimeType": "image/png",
+          "documentDescription": "Test Description",
+          "documentTypeCode": 1060
+        }
+      },
+      "updateCustomerProfileRequest": {
+        "title": "updateCustomerProfileRequest",
+        "required": [
+          "firstName",
+          "lastName",
+          "mobileNumber",
+          "email",
+          "address",
+          "city",
+          "customerId",
+          "israelIdNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "mobileNumber": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "customerId": {
+            "type": "string"
+          },
+          "israelIdNumber": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "firstName": "דערוק",
+          "lastName": "מעיער",
+          "mobileNumber": "(111)111-5566",
+          "email": "sample@email.com",
+          "address": "sampleAddress",
+          "city": "sampleCity",
+          "customerId": "33",
+          "israelIdNumber": "1234567891235"
+        }
+      },
+      "AddUserRequest": {
+        "title": "AddUserRequest",
+        "required": [
+          "firstName",
+          "lastName",
+          "mobileNumber",
+          "email",
+          "address",
+          "city",
+          "ticketSystemName",
+          "israelIdNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "mobileNumber": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "ticketSystemName": {
+            "type": "string"
+          },
+          "israelIdNumber": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "firstName": "קוד",
+          "lastName": "אואזיס",
+          "mobileNumber": "0507406078",
+          "email": "code@oasis.com",
+          "address": "אבא אבן 16",
+          "city": "הרצליה",
+          "ticketSystemName": "RoadProtectIL",
+          "israelIdNumber": "987654324"
+        }
+      },
+      "generateTicketDefenseRequest": {
+        "title": "generateTicketDefenseRequest",
+        "required": [
+          "ticketId",
+          "customParagraphs"
+        ],
+        "type": "object",
+        "properties": {
+          "ticketId": {
+            "type": "string"
+          },
+          "customParagraphs": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "ticketId": "33",
+          "customParagraphs": "כתב יד חלש/לא ברור\n1.   לאור העובדה כי פקח העירייה רשם את הדו\"ח בכתב יד חלש, הרי שנוצר לי נזק ממשי ליכולתי הן להבין את פשר הדו\"ח ופרטים מהותיים לגביו.\n2.   אשר על כן, לאור העובדה שפגם מהותי זה המביא לכך שלמעשה אין ביכולתי להתגונן מפני דו\"ח חנייה שהינו שימוש בסמכות אכיפה מנהלית, מן הראוי להביא לביטול הדו\"ח בגין עילה זו"
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Misc",
+      "description": ""
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+$burger: (
+    margin-top: spacing(1),
+    color: color(alt),
+    font-size: svg-font(burger),
+);
+
+.burger {
+    margin-top: map-deep-get($burger, margin-top);
+    color: map-deep-get($burger, color);
+    font-size: map-deep-get($burger, font-size);
+}

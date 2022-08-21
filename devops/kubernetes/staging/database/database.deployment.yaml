@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: database
+    namespace: staging
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: rp-appeals
+            type: database
+            env: staging
+    template:
+        metadata:
+            labels:
+                app: rp-appeals
+                type: database
+                env: staging
+        spec:
+            containers:
+                - image: postgres:11.1
+                  name: database
+                  ports:
+                      - containerPort: 5432
+                        name: entry
+                        protocol: TCP
+                  livenessProbe:
+                      tcpSocket:
+                          port: 5432
+                      initialDelaySeconds: 5
+                      periodSeconds: 10
+                  readinessProbe:
+                      tcpSocket:
+                          port: 5432
+                      initialDelaySeconds: 5
+                      periodSeconds: 10
+                  volumeMounts:
+                      - name: db-data
+                        mountPath: /var/lib/postgresql/data
+                        subPath: data
+                  env:
+                      - name: POSTGRES_USER
+                        valueFrom:
+                            secretKeyRef:
+                                name: database
+                                key: POSTGRES_USER
+                      - name: POSTGRES_PASSWORD
+                        valueFrom:
+                            secretKeyRef:
+                                name: database
+                                key: POSTGRES_PASSWORD
+                      - name: POSTGRES_DB
+                        valueFrom:
+                            secretKeyRef:
+                                name: database
+                                key: POSTGRES_DB
+            volumes:
+                - name: db-data
+                  persistentVolumeClaim:
+                      claimName: database-pvc

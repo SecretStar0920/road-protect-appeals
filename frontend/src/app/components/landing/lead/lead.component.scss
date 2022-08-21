@@ -1,0 +1,15 @@
+@import '../../../../assets/styles/module-dependencies';
+.mdl-wizard-head {
+    @include mdl-wizard-head();
+}
+
+.mdl-page-headlines {
+    $this-map: (
+        text-align: center,
+    );
+    @include mdl-headlines($this-map);
+}
+
+.mdl-page-footer {
+    @include mdl-footer();
+}

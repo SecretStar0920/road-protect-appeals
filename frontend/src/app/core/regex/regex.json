@@ -1,0 +1,5 @@
+{
+    "onlyNumbers": "[0-9]*",
+    "hebrew": "[\u0590-\u05FF\uFB2A-\uFB4E]",
+    "hebEngNumAndChar": "^[\u0590-\u05FF\uFB2A-\uFB4Ea-zA-Z0-9-_]*$"
+}

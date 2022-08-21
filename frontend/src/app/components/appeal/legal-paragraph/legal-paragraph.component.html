@@ -1,0 +1,127 @@
+<app-appeal-flow-wrapper>
+    <div class="mdl-page-layout">
+        <div class="mdl-page-layout__headline">
+            <div class="mdl-page-headlines">
+                <h1 class="title primary">פרטי ערעור הדו"ח</h1>
+                <h2 class="subtitle">הנה כל הפרטים שהתקבלו</h2>
+            </div>
+        </div>
+        <div class="mdl-page-layout__content">
+            <div class="form-body">
+                <section class="data-sum">
+                    <div class="data-sum__row data-sum__row--title">
+                        <h3 class="subtitle">פרטים אישיים</h3>
+                    </div>
+                    <label class="data-sum__row data-sum__row--data" for="">
+                        <span class="data-sum__key">שם מלא</span>
+                        <span class="data-sum__value"
+                            >{{ userInfo.controls['firstName'].value }} {{ userInfo.controls['lastName'].value }}</span
+                        >
+                    </label>
+                    <label class="data-sum__row data-sum__row--data" for="">
+                        <span class="data-sum__key">מספר נייד</span>
+                        <span class="data-sum__value">{{ userInfo.controls['mobile'].value }}</span>
+                    </label>
+                    <label class="data-sum__row data-sum__row--data" for="">
+                        <span class="data-sum__key">תעודת זהות</span>
+                        <span class="data-sum__value"> {{ userInfo.controls['israelIdNumber'].value }}</span>
+                    </label>
+                    <label class="data-sum__row data-sum__row--data" for="">
+                        <span class="data-sum__key">אימייל</span>
+                        <span class="data-sum__value"> {{ userInfo.controls['email'].value }}</span>
+                    </label>
+                    <label class="data-sum__row data-sum__row--data" for="">
+                        <span class="data-sum__key">כתובת</span>
+                        <span class="data-sum__value">
+                            {{ userInfo.controls['address'].value }} {{ userInfo.controls['houseNumber'].value }},
+                            {{ fine.controls['city'].value }}</span
+                        >
+                    </label>
+                </section>
+                <section class="data-sum">
+                    <div class="data-sum__row data-sum__row--title">
+                        <h3 class="data-sum__title subtitle">פרטי הדוח</h3>
+                    </div>
+                    <form [formGroup]="fine">
+                        <label class="data-sum__row data-sum__row--data" for="">
+                            <span class="data-sum__key">מספר הדוח</span>
+                            <span class="data-sum__value"> {{ fine.controls['citationNo'].value }}</span>
+                        </label>
+                        <label class="data-sum__row data-sum__row--data" for="">
+                            <span class="data-sum__key">כתובת</span>
+                            <span class="data-sum__value">
+                                {{ fine.controls['violationAddress'].value }} {{ fine.controls['violationHouseNumber'].value }},
+                                {{ fine.controls['violationCity'].value }}</span
+                            >
+                        </label>
+                        <label class="data-sum__row data-sum__row--data" for="">
+                            <span class="data-sum__key">מספר רכב</span>
+                            <span class="data-sum__value">{{
+                                fine.controls['licensePlate'].value | licensePlate
+                            }}</span>
+                        </label>
+                        <label class="data-sum__row data-sum__row--data" for="">
+                            <span class="data-sum__key">סוג הרכב</span>
+                            <span class="data-sum__value"> {{ fine.controls['vehicleMake'].value }}</span>
+                        </label>
+                        <label class="data-sum__row data-sum__row--data" for="">
+                            <span class="data-sum__key">מודל הרכב</span>
+                            <span class="data-sum__value"> {{ fine.controls['modelType'].value }}</span>
+                        </label>
+                        <label class="data-sum__row data-sum__row--data" for="">
+                            <span class="data-sum__key">סכום לתשלום</span>
+                            <span class="data-sum__value"> {{ fine.controls['amount'].value | currency: 'ILS' }}</span>
+                        </label>
+                        <label class="data-sum__row data-sum__row--data" for="">
+                            <span class="data-sum__key">תאריך קבלת הדוח</span>
+                            <span class="data-sum__value">{{
+                                fine.controls['violationDate'].value | date: 'dd/MM/yyyy'
+                            }}</span>
+                        </label>
+                        <label class="data-sum__row data-sum__row--data" for="">
+                            <span class="data-sum__key">שעת קבלת הדוח</span>
+                            <span class="data-sum__value">{{ fine.controls['violationTime'].value }}</span>
+                        </label>
+                    </form>
+                </section>
+                <section class="data-sum">
+                    <div class="data-sum__row data-sum__row--title">
+                        <h3 class="data-sum__title subtitle">פרטי הערעור</h3>
+                    </div>
+                    <label class="data-sum__row data-sum__row--data" for="">
+                        <span class="data-sum__key">העבירה בדוח</span>
+                        <span class="data-sum__value">{{ violation }}</span>
+                    </label>
+                    <label class="data-sum__row data-sum__row--data" for="">
+                        <span class="data-sum__key">סיבות הערעור</span>
+                        <ul>
+                            <li *ngFor="let reason of reasons">{{ reason }}</li>
+                        </ul>
+                    </label>
+                </section>
+                <section class="data-sum">
+                    <div class="data-sum__row data-sum__row--title">
+                        <button class="data-sum__edit">
+                            <svg-icon src="{{ imgPathService?.editUiIcon }}" class="icon"></svg-icon>
+                        </button>
+                        <h3 class="data-sum__title subtitle">הפסקה שתופיע במסמך הערעור</h3>
+                    </div>
+                    <textarea class="text-area" [(ngModel)]="submissionParagraph"></textarea>
+                    <div class="mdl-download" (click)="downloadPdf()">
+                        <span class="mdl-download-icon">
+                            <svg-icon [src]="imgPathService?.pdfUiIcon" class="icon"></svg-icon>
+                        </span>
+                        <a class="m-r-2">לצפיה במסמך</a>
+                    </div>
+                </section>
+            </div>
+            <div class="mdl-page-footer">
+                <rp-button type="button" [onClick]="createAndSendEmail.bind(this)">
+                    אישור ושליחה
+                </rp-button>
+            </div>
+        </div>
+
+        <preview-pdf [previewPdfUrl]="previewPdfUrl"></preview-pdf>
+    </div>
+</app-appeal-flow-wrapper>

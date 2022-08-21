@@ -1,0 +1,277 @@
+<app-appeal-flow-wrapper>
+    <div class="mdl-page-layout">
+        <div class="mdl-page-layout__headline">
+            <div class="mdl-page-headlines">
+                <h1 class="title primary">מהם פרטי הדוח?</h1>
+                <h2 class="subtitle">כל השדות הינן שדות חובה</h2>
+            </div>
+        </div>
+        <div class="mdl-page-layout__content">
+            <form [formGroup]="formGroup" class="form-container column-grow">
+                <div class="form-body">
+                    <div class="form-row form-row--half-min-lg">
+                        <div class="form-field">
+                            <label class="form-label">
+                                <div class="form-label__text">תעודת הזהות של מקבל הדו"ח</div>
+                                <mat-form-field appearance="outline">
+                                    <input
+                                        maxlength="9"
+                                        oninput="this.value = enableOnlyNumbers(this.value)"
+                                        type="tel"
+                                        matInput
+                                        formControlName="israelIdNumber"
+                                    />
+                                    <mat-hint *ngIf="ticketService.fine.get('israelIdNumber').invalid"
+                                        >9 ספרות כולל ספרת ביקורת</mat-hint
+                                    >
+                                    <mat-error
+                                        *ngIf="
+                                            ticketService.fine.get('israelIdNumber').invalid &&
+                                            ticketService.fine.get('israelIdNumber').touched
+                                        "
+                                    >
+                                        מספר תעודת זהות אינו תקין
+                                    </mat-error>
+                                </mat-form-field>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-row form-row--half-min-lg">
+                        <div class="form-field">
+                            <!-- <label class="form-label"> -->
+                            <div class="form-label__text">
+                                מספר הדו"ח
+                                <button type="button" class="btn-tooltip" [matMenuTriggerFor]="fineNumPic">
+                                    <svg-icon src="{{ imgPathService?.questionUiIcon }}" class="icon"></svg-icon>
+                                </button>
+                            </div>
+                            <mat-menu backdropClass="tooltip--offset" #fineNumPic="matMenu">
+                                <img src="./assets/images/migdalemek-hanaya.png" alt="דוגמאת דוח" />
+                            </mat-menu>
+                            <mat-form-field appearance="outline">
+                                <input type="text" matInput formControlName="citationNo" maxlength="13" />
+                                <mat-error>מספר הדו"ח יכול כולל מספרים ואותיות באנגלית ובעברית</mat-error>
+                            </mat-form-field>
+                            <!-- </label> -->
+                        </div>
+                    </div>
+
+                    <div class="form-row form-row--half-min-lg">
+                        <div class="form-field">
+                            <label class="form-label">
+                                <div class="form-label__text">מספר הרכב</div>
+                                <mat-form-field appearance="outline">
+                                    <input
+                                        maxlength="8"
+                                        oninput="this.value = enableOnlyNumbers(this.value)"
+                                        type="tel"
+                                        matInput
+                                        formControlName="licensePlate"
+                                    />
+                                    <mat-error
+                                        *ngIf="
+                                            ticketService.fine.get('licensePlate').invalid &&
+                                            ticketService.fine.get('licensePlate').touched
+                                        "
+                                    >
+                                        מספרים בלבד
+                                    </mat-error>
+                                </mat-form-field>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-row form-row--wrapp-max-lg">
+                        <div class="form-field form-field--wrapp-max-lg">
+                            <label class="form-label">
+                                <div class="form-label__text">סוג הרכב</div>
+                                <mat-form-field class="vehicleType" appearance="outline">
+                                    <mat-select
+                                        class="custom-select"
+                                        matNativeControl
+                                        formControlName="vehicleMake"
+                                        (blur)="getModelsByManufacture()"
+                                    >
+                                        <mat-option
+                                            *ngFor="let manufacture of vehicleManufactures"
+                                            value="{{ manufacture }}"
+                                        >
+                                            {{ manufacture }}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </label>
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label">
+                                <div class="form-label__text">מודל</div>
+                                <mat-form-field class="vehicleModel" appearance="outline">
+                                    <mat-select class="custom-select" matNativeControl formControlName="modelType">
+                                        <mat-option *ngFor="let model of vehicleModels" [value]="model">
+                                            {{ model }}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-hint *ngIf="ticketService.fine.get('modelType').invalid"
+                                        >יש למלא את סוג הרכב</mat-hint
+                                    >
+                                </mat-form-field>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-row form-row--half-min-lg">
+                        <div class="form-field">
+                            <div class="form-label__text">
+                                הסכום לתשלום
+                                <button type="button" class="btn-tooltip" [matMenuTriggerFor]="amountDuePic">
+                                    <svg-icon src="{{ imgPathService?.questionUiIcon }}" class="icon"></svg-icon>
+                                </button>
+                            </div>
+                            <mat-menu backdropClass="tooltip--offset" #amountDuePic="matMenu">
+                                <img src="./assets/images/tempETicketAirline.png" alt="דוגמאת דוח" />
+                            </mat-menu>
+                            <mat-form-field appearance="outline">
+                                <input
+                                    min="0"
+                                    maxlength="8"
+                                    max="99999"
+                                    type="text"
+                                    matInput
+                                    formControlName="amount"
+                                    pattern="[1-9][0-9]{0,4}(\.[0-9]{0,2})?"
+                                />
+                                <mat-error>מספרים בלבד</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-row form-row--wrapp-max-lg">
+                        <div class="form-field form-field--wrapp-max-lg">
+                            <label class="form-label">
+                                <div class="form-label__text">תאריך קבלת הדו"ח</div>
+                                <mat-form-field appearance="outline">
+                                    <input
+                                        matInput
+                                        [matDatepicker]="picker"
+                                        placeholder=""
+                                        formControlName="violationDate"
+                                        [max]="maxDate"
+                                        autocomplete="off"
+                                    />
+                                    <mat-datepicker-toggle matSuffix [for]="picker">
+                                        <mat-icon matDatepickerToggleIcon>
+                                            <svg-icon
+                                                [src]="imgPathService?.calanderUiIcon"
+                                                class="icon icon--mat-date"
+                                            ></svg-icon>
+                                        </mat-icon>
+                                    </mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+                            </label>
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label">
+                                <div class="form-label__text">שעת קבלת הדו"ח</div>
+                                <mat-form-field class="custom-timer" appearance="outline">
+                                    <input
+                                        matInput
+                                        [ngxTimepicker]="violationTime"
+                                        [format]="24"
+                                        placeholder="00:00"
+                                        formControlName="violationTime"
+                                    />
+                                    <ngx-material-timepicker
+                                        #violationTime
+                                        class="time-picker"
+                                        [cancelBtnTmpl]="cancelBtn"
+                                        [confirmBtnTmpl]="confirmBtn"
+                                    >
+                                    </ngx-material-timepicker>
+                                    <ng-template #cancelBtn>
+                                        <button class="timepicker__close">
+                                            <svg-icon src="{{ imgPathService?.closeUiIcon }}" class="icon"></svg-icon>
+                                        </button>
+                                    </ng-template>
+                                    <ng-template #confirmBtn>
+                                        <button mat-button class="btn-mat-custom-sm">אישור</button>
+                                    </ng-template>
+                                </mat-form-field>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-row form-row--wrapp-max-lg">
+                        <div class="form-field form-field--wrapp-max-lg form-field--calc-half-min-lg">
+                            <div class="form-label__text">
+                                עיר קבלת הדו"ח
+                                <button type="button" class="btn-tooltip" [matMenuTriggerFor]="amountDuePic">
+                                    <svg-icon src="{{ imgPathService?.questionUiIcon }}" class="icon"></svg-icon>
+                                </button>
+                            </div>
+                            <mat-menu backdropClass="tooltip--offset" #amountDuePic="matMenu">
+                                נא למלא פרטים כפי המופיע בדו"ח
+                            </mat-menu>
+                            <mat-form-field class="violationCity" appearance="outline">
+                                <input
+                                    (keydown)="deleteStreet()"
+                                    type="text"
+                                    aria-label="Assignee"
+                                    matInput
+                                    formControlName="violationCity"
+                                    [matAutocomplete]="autoCity"
+                                    (blur)="getStreets()"
+                                />
+                                <mat-autocomplete #autoCity="matAutocomplete" [displayWith]="displayCityFn">
+                                    <mat-option *ngFor="let city of filteredCities | async" [value]="city.name">
+                                        {{ city.name }}
+                                    </mat-option>
+                                </mat-autocomplete>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label">
+                                <div class="form-label__text">שם הרחוב</div>
+                                <mat-form-field class="street" appearance="outline">
+                                    <input
+                                        #street
+                                        type="text"
+                                        aria-label="Assignee"
+                                        matInput
+                                        formControlName="violationAddress"
+                                        [matAutocomplete]="autoStreet"
+                                    />
+                                    <mat-autocomplete #autoStreet="matAutocomplete" [displayWith]="displayStreetFn">
+                                        <mat-option *ngFor="let street of filteredStreets | async" [value]="street">
+                                            {{ street }}
+                                        </mat-option>
+                                    </mat-autocomplete>
+                                    <mat-hint *ngIf="ticketService.fine.get('violationCity').invalid">יש לבחור עיר</mat-hint>
+                                </mat-form-field>
+                            </label>
+                        </div>
+                        <div class="form-field form-field--prefix">
+                            <label class="form-label">
+                                <div class="form-label__text">מספר בית</div>
+                                <mat-form-field appearance="outline">
+                                    <input type="text" matInput formControlName="violationHouseNumber" maxlength="4" />
+                                </mat-form-field>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdl-page-footer" [ngSwitch]="ticketService.routeToEnd()">
+                    <button
+                        mat-button
+                        class="btn-mat-custom"
+                        (click)="onSubmit()"
+                        *ngSwitchCase="true"
+                    >
+                        חזור לסיכום
+                    </button>
+                    <rp-button  [onClick]="onSubmit.bind(this)" *ngSwitchDefault
+                        >המשך לשלב הבא
+                    </rp-button>
+                </div>
+            </form>
+        </div>
+    </div>
+</app-appeal-flow-wrapper>

@@ -1,0 +1,8 @@
+[
+    {
+        "name": "ZA API",
+        "swaggerPath": "./.vscode/ZA_swagger.json",
+        "outputFolder": "./src/apis/ZA",
+        "clientLanguage": "typescript-node"
+    }
+]

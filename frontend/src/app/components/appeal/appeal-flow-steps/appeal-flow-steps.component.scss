@@ -1,0 +1,10 @@
+@import '../../../../assets/styles/module-dependencies';
+
+.mdl-wizard-head {
+    @include mdl-wizard-head();
+    min-height: 80vh;
+}
+
+.mdl-tabs {
+    @include mdl-tabs();
+}

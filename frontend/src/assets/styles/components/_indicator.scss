@@ -1,0 +1,32 @@
+$indicator: (
+    item: (
+        border-radius: $radius-round,
+        background-color: color(system-alt),
+        size: 10px,
+        margin-x: spacing(1),
+        active: (
+            background-color: color(primary),
+        ),
+    ),
+);
+
+.indicator {
+    display: flex;
+    justify-content: center;
+
+    &__item {
+        border-radius: map-deep-get($indicator, item, border-radius);
+        background-color: map-deep-get($indicator, item, background-color);
+        width: map-deep-get($indicator, item, size);
+        height: map-deep-get($indicator, item, size);
+
+        & + &:not(:last-child) {
+            margin-right: map-deep-get($indicator, item, margin-x);
+            margin-left: map-deep-get($indicator, item, margin-x);
+        }
+
+        &--active {
+            background-color: map-deep-get($indicator, item, active, background-color);
+        }
+    }
+}

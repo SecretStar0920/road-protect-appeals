@@ -1,0 +1,39 @@
+$base-unit: 1rem;
+$spacing-values: (0.5 * $base-unit, 1 * $base-unit, 1.5 * $base-unit, 2 * $base-unit, 2.5 * $base-unit);
+$spacing-keys: (bottom, top, left, right);
+
+$font-rem-resize: 62.5%;
+$weight-light: 300;
+$weight-normal: 400;
+$weight-semi-bold: 500;
+$weight-bold: 700;
+$weight-black: 800;
+
+$z-index-base: 1;
+
+$radius: (
+    small: 4px,
+);
+$radius-round: 50%;
+
+$border-default: 1px;
+$border-shout: 10px;
+
+$form-field-height: 60px;
+
+// Animation
+$timing-default: 0.3s;
+$transition-default: ease-in-out;
+
+$base-font: 'Assistant';
+$fallback-font: 'sans-serif';
+
+//Fonts
+$font-assistant-light: 'Assistant-Light';
+$font-assistant-regular: 'Assistant-Regular';
+$font-assistant-semi-bold: 'Assistant-SemiBold';
+$font-assistant-bold: 'Assistant-Bold';
+$font-assistant-black: 'Assistant-ExtraBold';
+
+// Layout
+$content-width-min-lg: 1200px;

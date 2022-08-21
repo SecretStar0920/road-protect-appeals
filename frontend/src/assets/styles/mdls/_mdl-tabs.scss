@@ -1,0 +1,12 @@
+$mdl-tabs-map: (
+    margin-bottom: spacing(2),
+    min-lg: (
+        margin-bottom: spacing(5),
+    ),
+) !default;
+@mixin mdl-tabs($map: $mdl-tabs-map) {
+    margin-bottom: map-deep-get($map, margin-bottom);
+    @include media-min(lg) {
+        margin-bottom: map-deep-get($map, min-lg, margin-bottom);
+    }
+}

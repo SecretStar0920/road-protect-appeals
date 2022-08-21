@@ -1,0 +1,38 @@
+.tabs {
+    display: flex;
+    justify-content: space-between;
+    &__item {
+        flex-grow: 1;
+        position: relative;
+        height: 28px;
+        cursor: pointer;
+        @include media-min(lg) {
+            height: 58px;
+        }
+    }
+    &__item-text {
+        padding-top: 6px;
+        @include media-min(lg) {
+            padding-top: 26px;
+            font-size: 24px;
+        }
+        .#{tabs__item}:hover &,
+        .#{tabs__item}--active & {
+            color: #1eabdf;
+            font-weight: 700;
+        }
+    }
+    &__item-decorator {
+        position: absolute;
+        height: 6px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #e7e7e7;
+
+        .#{tabs__item}:hover &,
+        .#{tabs__item}--active & {
+            background-color: #1eabdf;
+        }
+    }
+}

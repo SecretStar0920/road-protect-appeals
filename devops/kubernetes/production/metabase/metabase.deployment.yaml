@@ -1,0 +1,44 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: metabase
+    namespace: production
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: rp-appeals
+            type: metabase
+            env: prod
+    template:
+        metadata:
+            labels:
+                app: rp-appeals
+                type: metabase
+                env: prod
+        spec:
+            containers:
+                - image: metabase/metabase
+                  name: metabase
+                  resources:
+                      requests:
+                          cpu: 50m
+                          memory: 64Mi
+                  imagePullPolicy: Always
+                  ports:
+                      - containerPort: 3000
+                        name: entry
+                        protocol: TCP
+                  volumeMounts:
+                      - name: storage
+                        mountPath: /metabase-data
+                  env:
+                      - name: MB_DB_FILE
+                        value: '/metabase-data/metabase.db'
+            volumes:
+                - name: storage
+                  persistentVolumeClaim:
+                      claimName: metabase-storage-pvc
+---
+

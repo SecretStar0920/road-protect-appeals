@@ -1,0 +1,47 @@
+<div class="column-grow">
+    <div class="intro">
+        <div class="intro__slider" [ngStyle]="sliderStyle()" *ngIf="data">
+            <div class="intro__item" *ngFor="let activeData of data; let i = index">
+                <div class="boarding">
+                    <div class="boarding__img">
+                        <img
+                            src="{{ activeData?.imgUrl }}"
+                            [alt]="getImgName(activeData?.imgUrl)"
+                            [title]="getImgName(activeData?.imgUrl)"
+                            alt=""
+                        />
+                    </div>
+                    <ul class="boarding__indicator indicator">
+                        <li
+                            class="indicator__item"
+                            *ngFor="let p of [0, 1, 2]"
+                            [ngClass]="{ 'indicator__item--active': pageNum == p }"
+                        ></li>
+                    </ul>
+                    <h1 class="boarding__title">{{ activeData?.title }}</h1>
+                    <div class="boarding__text">
+                        <ul *ngIf="!activeData?.textList">
+                            <li *ngFor="let textrow of activeData?.text">{{ textrow }}</li>
+                        </ul>
+                        <ol *ngIf="activeData?.textList" class="boarding__cta-list">
+                            <li *ngFor="let textrow of activeData?.text">{{ textrow }}</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mdl-page-footer">
+        <button class="btn btn--lg btn--round btn--primary" (click)="nextPage()">
+            {{ pageNum != data?.length - 1 ? 'המשך' : 'הדוח עלי, בואו נמשיך' }}
+        </button>
+        <button
+            class="btn-link"
+            *ngIf="pageNum != data?.length - 1"
+            (click)="pageNum = data?.length"
+            [routerLink]="['/start']"
+        >
+            דלג
+        </button>
+    </div>
+</div>

@@ -1,0 +1,111 @@
+$upload-image: (
+    margin-bottom: spacing(2),
+    body: (
+        height: 180px,
+        radius: map-deep-get($radius, small),
+        shadow: 0 1px 5px 0 rgba(color(dark), 0.2),
+        border: solid 1px color(control),
+        background-color: color(light),
+        margin-bottom: spacing(2),
+    ),
+    icon: (
+        margin-bottom: spacing(2),
+        radius: $radius-round,
+        background-color: color(primary),
+        size: 90px,
+        color: color(light),
+        font-size: 48px,
+    ),
+    text: (
+        font-size: type(headline),
+        font-weight: $weight-bold,
+    ),
+    data: (
+        margin-bottom: spacing(2),
+    ),
+    file-icon: (
+        font-size: 32px,
+    ),
+    file-progress: (
+        padding--x: spacing(1),
+    ),
+    file-text: (
+        font-size: type(subtitle),
+        margin-right: spacing(1),
+    ),
+);
+
+.upload-image {
+    margin-bottom: map-deep-get($upload-image, margin-bottom);
+
+    &__body {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: map-deep-get($upload-image, body, margin-bottom);
+        border: map-deep-get($upload-image, body, border);
+        border-radius: map-deep-get($upload-image, body, radius);
+        box-shadow: map-deep-get($upload-image, body, shadow);
+        background-color: map-deep-get($upload-image, body, background-color);
+        height: map-deep-get($upload-image, body, height);
+    }
+
+    &__label {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        flex-grow: 1;
+        justify-content: center;
+        width: 100%;
+    }
+
+    &__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: map-deep-get($upload-image, icon, margin-bottom);
+        border-radius: map-deep-get($upload-image, icon, radius);
+        background-color: map-deep-get($upload-image, icon, background-color);
+        width: map-deep-get($upload-image, icon, size);
+        height: map-deep-get($upload-image, icon, size);
+        color: map-deep-get($upload-image, icon, color);
+        font-size: map-deep-get($upload-image, icon, font-size);
+    }
+
+    &__text {
+        font-size: map-deep-get($upload-image, text, font-size);
+        font-weight: map-deep-get($upload-image, text, font-weight);
+    }
+
+    &__data {
+        margin-bottom: map-deep-get($upload-image, data, margin-bottom);
+    }
+
+    &__file {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__file-icon {
+        color: inherit;
+        font-size: map-deep-get($upload-image, file-icon, font-size);
+    }
+
+    &__file-progress {
+        flex-grow: 1;
+        padding-right: map-deep-get($upload-image, file-progress, padding-x);
+        padding-left: map-deep-get($upload-image, file-progress, padding-x);
+    }
+
+    &__file-text {
+        margin-right: map-deep-get($upload-image, file-text, margin-right);
+        margin-left: auto;
+        font-size: map-deep-get($upload-image, file-text, font-size);
+    }
+
+    &__subtitle {
+        text-align: center;
+    }
+}

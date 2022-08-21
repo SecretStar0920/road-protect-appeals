@@ -1,0 +1,75 @@
+$main: (
+    min-lg: (
+        background-image: (
+            url('#{$path-image + $image-head_bg-secondary}'),
+            url('#{$path-image + $image-head_bg-secondary}'),
+        ),
+        background-size: (
+            auto 226px,
+            auto 226px,
+        ),
+    ),
+    pseudo: (
+        min-lg: (
+            top: 226px,
+            background-color: $color-stk-sail,
+        ),
+    ),
+    content: (
+        min-lg: (
+            z-index: $z-index-base,
+            margin-top: soacing(4.5),
+            margin-bottom: spacing(4),
+            radius: map-deep-get($radius, small),
+            shadow: 0 1px 5px 0 rgba(color(dark), 0.2),
+            background-color: color(light),
+            width: $content-width-min-lg,
+        ),
+    ),
+);
+
+.main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    @include media-min(lg) {
+        position: relative;
+        background-image: map-deep-get($main, min-lg, background-image);
+        background-repeat: no-repeat;
+        background-position: top right, top left;
+        background-size: map-deep-get($main, min-lg, background-size);
+    }
+
+    &::after {
+        @include media-min(lg) {
+            display: inline-block;
+            position: absolute;
+            top: map-deep-get($main, pseudo, min-lg, top);
+            bottom: 0;
+            left: 0;
+            background-color: map-deep-get($main, pseudo, min-lg, background-color);
+            width: 100%;
+            content: '';
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        @include media-min(lg) {
+            position: relative;
+            flex-grow: 0;
+            z-index: map-deep-get($main, content, min-lg, z-index);
+            margin-top: map-deep-get($main, content, min-lg, margin-top);
+            margin-right: auto;
+            margin-bottom: map-deep-get($main, content, min-lg, margin-bottom);
+            margin-left: auto;
+            border-radius: map-deep-get($main, content, min-lg, radius);
+            box-shadow: map-deep-get($main, content, min-lg, shadow);
+            background-color: map-deep-get($main, content, min-lg, background-color);
+            width: $content-width-min-lg;
+        }
+    }
+}

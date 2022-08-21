@@ -1,0 +1,28 @@
+<button class="dialog__close" (click)="dismiss()">
+    <svg-icon src="{{ imgPathService?.closeUiIcon }}" class="icon"></svg-icon>
+</button>
+<div class="dialog__body text-center">
+    <svg-icon src="{{ imgPathService?.errorUiIcon }}" class="icon icon--dialog-error"></svg-icon>
+    <div class="dialog__title">{{ title }}</div>
+    <div class="dialog__text">{{ content }}</div>
+</div>
+<div class="dialog__footer" [ngStyle]="cancelButtonText ? { display: 'flex' } : {}">
+    <button
+        mat-button
+        class="btn-mat-custom"
+        type="button"
+        (click)="onOkButtonClick()"
+        [ngStyle]="cancelButtonText ? { marginLeft: '20px' } : {}"
+    >
+        {{ okButtonText }}
+    </button>
+    <button
+        mat-button
+        class="btn-mat-custom danger"
+        type="button"
+        (click)="onCancelButtonClick()"
+        *ngIf="cancelButtonText"
+    >
+        {{ cancelButtonText }}
+    </button>
+</div>

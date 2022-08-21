@@ -1,0 +1,13 @@
+@import '../../../../../assets/styles/module-dependencies';
+
+.mdl-topic-list {
+    @include media-min(lg) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .topic-item {
+            flex-basis: 100%;
+        }
+    }
+}

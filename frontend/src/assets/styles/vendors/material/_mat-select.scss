@@ -1,0 +1,54 @@
+$mat-select: (
+    value-text: (
+        color: color(type),
+    ),
+    arrow: (
+        transition: transform 0.3s ease-in-out,
+        background-image: get-image(icon, ui, chevron-down),
+        size: 16px,
+        focus: (
+            transform: rotate(180deg),
+        ),
+    ),
+    panel: (
+        offset: $form-field-height,
+    ),
+);
+
+.mat-select {
+    &.custom-select {
+        font-family: inherit;
+    }
+}
+
+.mat-select-value-text {
+    .mat-select.custom-select & {
+        color: map-deep-get($mat-select, value-text, color);
+    }
+}
+
+.mat-select-arrow-wrapper {
+    .mat-select.custom-select & {
+        transform: none;
+    }
+}
+
+.mat-select-arrow {
+    .mat-select.custom-select & {
+        transition: map-deep-get($mat-select, arrow, transition);
+        border: 0;
+        background-image: map-deep-get($mat-select, arrow, background-image);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: map-deep-get($mat-select, arrow, size);
+        height: map-deep-get($mat-select, arrow, size);
+    }
+
+    .mat-focused .mat-select.custom-select & {
+        transform: map-deep-get($mat-select, arrow, focus, transform);
+    }
+}
+
+.mat-select-panel {
+    margin-top: map-deep-get($mat-select, panel, offset);
+}

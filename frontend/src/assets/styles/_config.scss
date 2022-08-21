@@ -1,0 +1,8 @@
+@import 'config/assets';
+@import 'config/breakpoints';
+@import 'config/z-index';
+@import 'config/colors';
+@import 'config/type';
+@import 'config/svg-scale';
+// Globals should be last
+@import 'config/globals';

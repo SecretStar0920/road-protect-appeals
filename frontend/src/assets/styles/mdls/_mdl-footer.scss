@@ -1,0 +1,41 @@
+$mdl-footer-map: (
+    height: 106px,
+    max-lg: (
+        child-gap: spacing(1),
+        padding-bottom: spacing(2),
+    ),
+    min-lg: (
+        padding-top: spacing(2),
+        padding-bottom: spacing(6),
+        child-gap: spacing(12),
+    ),
+) !default;
+
+@mixin mdl-footer($map: $mdl-footer-map) {
+    display: flex;
+    align-items: center;
+    min-height: map-deep-get($map, height);
+    text-align: center;
+
+    @include media-max(lg) {
+        flex-direction: column;
+        padding-bottom: map-deep-get($map, max-lg, padding-bottom);
+    }
+
+    @include media-min(lg) {
+        justify-content: center;
+        margin-bottom: auto;
+        padding-top: map-deep-get($map, min-lg, padding-top);
+        padding-bottom: map-deep-get($map, min-lg, padding-bottom);
+    }
+
+    > * + * {
+        @include media-max(lg) {
+            margin-top: map-deep-get($map, max-lg, child-gap);
+        }
+
+        @include media-min(lg) {
+            margin-right: map-deep-get($map, min-lg, child-gap);
+        }
+    }
+}

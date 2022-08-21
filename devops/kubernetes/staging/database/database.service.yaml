@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: database
+  namespace: staging
+  labels:
+    app: rp-appeals
+    type: database
+    env: staging
+spec:
+  type: ClusterIP
+  ports:
+  - port: 5432
+    protocol: TCP
+    targetPort: entry
+  selector:
+    app: rp-appeals
+    type: database
+    env: staging
+

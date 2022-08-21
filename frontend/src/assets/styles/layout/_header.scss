@@ -1,0 +1,24 @@
+$header: (
+    padding-y: spacing(1.2),
+    padding-x: spacing(1.7),
+    min-lg: (
+        width: $content-width-min-lg,
+    ),
+);
+
+.header {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    padding: map-deep-get($header, padding-y) map-deep-get($header, padding-x);
+
+    @include media-max(lg) {
+        flex-direction: row-reverse;
+    }
+
+    @include media-min(lg) {
+        margin: auto;
+        max-width: map-deep-get($header, min-lg, width);
+    }
+}

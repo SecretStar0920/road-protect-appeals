@@ -1,0 +1,14 @@
+$user-head: (
+    margin-top: - spacing(3.5),
+    min-lg: (
+        margin-top: - spacing(1.5),
+    ),
+);
+
+.user-head {
+    margin-top: map-deep-get($user-head, margin-top);
+    text-align: center;
+    @include media-min(lg) {
+        margin-top: map-deep-get($user-head, min-lg, margin-top);
+    }
+}

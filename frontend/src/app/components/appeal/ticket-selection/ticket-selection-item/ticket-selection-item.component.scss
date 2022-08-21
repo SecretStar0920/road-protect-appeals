@@ -1,0 +1,62 @@
+@import '../../../../../assets/styles/module-dependencies';
+
+.mdl-page-headlines {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: space-between;
+  padding: 40px;
+
+  @include media-max(md) {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: spacing(4);
+  }
+
+  .title {
+    @include media-max(md) {
+      margin-bottom: spacing(2.5);
+    }
+  }
+}
+
+.data-sum__row--title {
+  padding-right: spacing(2);
+}
+
+.data-col {
+  @include media-max(md) {
+    &:not(:last-child) {
+      margin-bottom: spacing(4);
+    }
+  }
+
+  @include media-min(md) {
+    &:first-child {
+      flex-grow: 1;
+      max-width: 300px;
+    }
+  }
+}
+
+.ticket__appeal-details .btn-mat-custom-ghost.mat-button {
+  max-width: 240px;
+
+  @include media-max(md) {
+    display: block;
+    margin: auto;
+  }
+
+  @include media-min(md) {
+    margin-top: auto;
+    margin-right: auto;
+    margin-left: spacing(2);
+  }
+}
+
+.loading {
+  display: flex;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+}

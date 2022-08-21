@@ -1,0 +1,21 @@
+@mixin triangle($direction, $size-x, $size-y, $color: currentcolor, $position: absolute) {
+    @if not index(top right bottom left, $direction) {
+        @error "Direction must be either `top`, `right`, `bottom` or `left`.";
+    }
+    position: $position;
+    z-index: $z-index-base;
+    width: 0;
+    height: 0;
+    content: '';
+    border-#{opposite-direction($direction)}: ($size-x * 1.5) solid $color;
+    #{$direction}: -#{1.5 * $size-x};
+    $perpendicular-borders: $size-y solid transparent;
+
+    @if $direction == top or $direction == bottom {
+        border-right: $perpendicular-borders;
+        border-left: $perpendicular-borders;
+    } @else if $direction == right or $direction == left {
+        border-top: $perpendicular-borders;
+        border-bottom: $perpendicular-borders;
+    }
+}

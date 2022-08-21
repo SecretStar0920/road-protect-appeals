@@ -1,0 +1,28 @@
+$text-area: (
+    margin: spacing(1),
+    radius: map-deep-get($radius, small),
+    shadow: 0 1px 5px 0 rgba(color(dark), 0.2),
+    padding: spacing(1),
+    height: 200px,
+    font-size: type(subtitle),
+    focus: (
+        outline-color: color(primary),
+    ),
+);
+
+.text-area {
+    margin-bottom: map-deep-get($text-area, margin);
+    border: 0;
+    border-radius: map-deep-get($text-area, radius);
+    box-shadow: map-deep-get($text-area, shadow);
+    padding: map-deep-get($text-area, padding);
+    width: 100%;
+    min-height: map-deep-get($text-area, height);
+    resize: none;
+    color: inherit;
+    font-size: map-deep-get($text-area, font-size);
+
+    &:focus {
+        outline-color: map-deep-get($text-area, focus, outline-color);
+    }
+}

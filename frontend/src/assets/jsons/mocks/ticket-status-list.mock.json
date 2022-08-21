@@ -1,0 +1,50 @@
+[
+    {
+        "id": 40,
+        "name": "Pending"
+    },
+    {
+        "id": 41,
+        "name": "Pending - Membership"
+    },
+    {
+        "id": 42,
+        "name": "Cannot Take"
+    },
+    {
+        "id": 43,
+        "name": "Not Engaging"
+    },
+    {
+        "id": 44,
+        "name": "Duplicate"
+    },
+    {
+        "id": 45,
+        "name": "Closed"
+    },
+    {
+        "id": 46,
+        "name": "Completed"
+    },
+    {
+        "id": 47,
+        "name": "Dismissed"
+    },
+    {
+        "id": 48,
+        "name": "Refunded"
+    },
+    {
+        "id": 49,
+        "name": "Guilty"
+    },
+    {
+        "id": 50,
+        "name": "Paid - Credit Card"
+    },
+    {
+        "id": 51,
+        "name": "Paid - Membership"
+    }
+]

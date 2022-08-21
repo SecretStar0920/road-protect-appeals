@@ -1,0 +1,223 @@
+$tickets: (
+    margin-top: spacing(2.5),
+);
+
+$ticket: (
+    spacing: spacing(4),
+    border: 1px solid #bebebe,
+    background-color: #ffffff,
+    max-md: (
+        spacing: spacing(3),
+    ),
+    header: (
+        height: 40px,
+    ),
+    status: (
+        radius: 100%,
+        width: 130px,
+        paid: (
+            background-color: #e18f40,
+        ),
+        unpaid: (
+            background-color: #ffd783,
+        ),
+        sent: (
+            background-color: #92d36e,
+        ),
+        incomplete: (
+            background-color: #d34b4b,
+        ),
+    ),
+    body: (
+        padding-top: spacing(1),
+    ),
+    footer: (
+        margin-top: spacing(1),
+        background-color: #e6f5fa,
+        padding-x: spacing(2),
+        height: 66px,
+    ),
+);
+
+.tickets {
+    display: flex;
+    flex-direction: column;
+    margin-top: spacing(2.5);
+}
+
+.ticket {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin: 0 map-deep-get($ticket, spacing) map-deep-get($ticket, spacing);
+    border: map-deep-get($ticket, border);
+    border-radius: map-deep-get($radius, small);
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    background-color: map-deep-get($ticket, background-color);
+    overflow: hidden;
+    @include media-max(md) {
+        margin: 0 map-deep-get($ticket, max-md, spacing) map-deep-get($ticket, max-md, spacing);
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: map-deep-get($ticket, header, height);
+    }
+
+    &__action-buttons {
+        display: flex;
+        flex-direction: row-reverse;
+        margin-top: spacing(1.5);
+        padding-left: spacing(1);
+        color: color(primary);
+        font-size: 24px;
+
+        @include media-min(md) {
+            font-size: 32px;
+        }
+
+        button + button {
+            margin-left: spacing(1);
+        }
+    }
+
+    &__status {
+        display: flex;
+        position: relative;
+        align-items: center;
+        box-shadow: -1px 2px 2px 0 rgba(0, 0, 0, 0.2);
+        padding-right: spacing(2.5);
+        padding-left: 25px;
+        font-size: type(subtitle);
+
+        &::after {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: -39px;
+            border-bottom-left-radius: map-deep-get($ticket, status, radius);
+            box-shadow: -2px 2px 2px 0 rgba(0, 0, 0, 0.2);
+            width: 40px;
+            height: 100%;
+            content: '';
+        }
+
+        &--paid {
+            &,
+            &::after {
+                background-color: map-deep-get($ticket, status, paid, background-color);
+            }
+        }
+        &--unpaid {
+            &,
+            &::after {
+                background-color: map-deep-get($ticket, status, unpaid, background-color);
+            }
+        }
+
+        &--sent {
+            &,
+            &::after {
+                background-color: map-deep-get($ticket, status, sent, background-color);
+            }
+        }
+
+        &--incomplete {
+            color: color(light);
+
+            &,
+            &::after {
+                background-color: map-deep-get($ticket, status, incomplete, background-color);
+            }
+        }
+    }
+
+    &__body {
+        display: flex;
+        justify-content: space-between;
+        padding-top: spacing(2);
+        margin-bottom: 15px;
+
+        @include media-max(md) {
+            flex-direction: column;
+        }
+    }
+
+    &__images {
+        display: flex;
+        flex-wrap: wrap;
+
+        @include media-max(md) {
+            margin-right: spacing(2);
+            margin-left: spacing(2);
+        }
+
+        @include media-min(md) {
+            margin-right: spacing(2);
+        }
+    }
+
+    &__image {
+        display: block;
+        background-color: $color-stk-wild-sand;
+        background-image: url('#{$path-ui + $icon-thumb-empty}');
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-size: 40px;
+        height: 121px;
+
+        img {
+            height: 100%;
+            max-width: 155px;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: spacing(1);
+        }
+
+        @include media-min(md) {
+            margin-left: spacing(1);
+            // width: calc(50% - #{spacing(1)});
+            min-height: 112px;
+        }
+    }
+
+    &__appeal-details {
+        @include media-min(md) {
+            display: flex;
+            flex: 0;
+            flex-direction: column;
+            justify-content: space-between;
+            min-width: 340px;
+        }
+    }
+
+    &__details {
+        @include media-min(md) {
+            flex-grow: 1;
+            padding-right: spacing(6);
+            padding-left: spacing(6);
+        }
+    }
+
+    &__footer {
+        display: flex;
+        align-items: center;
+        margin-top: map-deep-get($ticket, footer, margin-top);
+        background-color: map-deep-get($ticket, footer, background-color);
+        padding-right: map-deep-get($ticket, footer, padding-x);
+        padding-left: map-deep-get($ticket, footer, padding-x);
+        height: map-deep-get($ticket, footer, height);
+    }
+
+    &__appeal-status {
+        font-size: type(subtitle);
+    }
+
+    &__appeal-button {
+        margin-right: spacing(2.5);
+        font-size: 30px;
+    }
+}

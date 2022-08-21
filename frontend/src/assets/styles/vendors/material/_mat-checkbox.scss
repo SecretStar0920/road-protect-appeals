@@ -1,0 +1,20 @@
+$mat-checkbox: (
+    checkbox-background: color(primary),
+);
+
+.mat-checkbox.checkbox {
+    font-family: inherit;
+}
+
+.mat-ripple-element {
+    .mat-checkbox.checkbox.mat-checkbox-checked:not(.mat-checkbox-disabled).mat-accent &,
+    .mat-checkbox.checkbox:active:not(.mat-checkbox-disabled).mat-accent & {
+        background: map-deep-get($mat-checkbox, checkbox-background);
+    }
+}
+
+.mat-checkbox-background {
+    .checkbox.mat-checkbox.mat-checkbox-checked & {
+        background-color: map-deep-get($mat-checkbox, checkbox-background);
+    }
+}

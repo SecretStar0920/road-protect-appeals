@@ -1,0 +1,49 @@
+<div class="mdl-wizard-head mdl-otp">
+    <div class="mdl-page-headlines">
+        <h1 class="title primary">מה הקוד שנשלח אליך?</h1>
+        <h2 class="subtitle">יש להזין את המספר שנשלח</h2>
+        <div class="form-column">
+            <div>
+                שלחנו לך קוד למספר - {{ mobile }}<br />
+                אם זה לא הטלפון שלך <br /><br />
+                <button class="btn-link btn-link--bold" [routerLink]="['/start']">כאן המקום לעדכן</button>
+            </div>
+        </div>
+    </div>
+    <form class="form-container form-container--condensed-min-lg column-grow">
+        <div class="form-body">
+            <div class="form-row">
+                <div class="form-field mdl-form-filed-otp">
+                    <label class="form-label">
+                        <div class="form-label__text">הקוד</div>
+                        <mat-form-field appearance="outline">
+                            <input
+                                type="tel"
+                                name="otpcode"
+                                matInput
+                                [(ngModel)]="otpCode"
+                                oninput="this.value = enableOnlyNumbers(this.value)"
+                                maxlength="6"
+                                autofocus
+                            />
+                            <mat-error>יש להקליד את הספרות שקיבלת</mat-error>
+                        </mat-form-field>
+                    </label>
+                </div>
+            </div>
+            <div class="mdl-otp-buttons">
+                <rp-button type="submit" [onClick]="onSubmit.bind(this)" [disabled]="otpCode.length < 6">
+                    שנתחיל?</rp-button
+                >
+                <button class="btn-link btn-link--bold" (click)="resendOtpCode()">לא קיבלתי, תשלחו לי שוב</button>
+            </div>
+            <div class="form-column">
+                <div>
+                    לתמיכה יש ליצור קשר עם מוקד השירות בטלפון, <br />
+                    בימים א-ה בין השעות 8:30-15:30<br />
+                </div>
+                <a href="tel:058-7944611">058-7944611</a>
+            </div>
+        </div>
+    </form>
+</div>

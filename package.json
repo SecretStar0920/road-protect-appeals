@@ -1,0 +1,23 @@
+{
+  "name": "road-protect-appeals",
+  "contributors": [
+    "Code Oasis",
+    "Entrostat"
+  ],
+  "version": "2.4.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "release": "standard-version",
+    "release:dry-run": "standard-version --dry-run"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "dependencies": {
+    "standard-version": "^7.0.1"
+  },
+  "devDependencies": {
+    "prettier": "^2.0.5"
+  }
+}

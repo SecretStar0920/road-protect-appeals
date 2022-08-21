@@ -1,0 +1,51 @@
+$footer: (
+    padding-y: spacing(1.2),
+    padding-x: spacing(1.7),
+    min-lg: (
+        width: $content-width-min-lg,
+    ),
+);
+
+.footer {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    background-color: #e5f7fe;
+    padding: map-deep-get($footer, padding-y) map-deep-get($footer, padding-x);
+
+    &__addresses {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        @include media-max(lg) {
+            flex-direction: column;
+        }
+
+        @include media-min(lg) {
+            margin: auto;
+            max-width: map-deep-get($footer, min-lg, width);
+        }
+
+        svg-icon {
+            margin-left: 15px;
+        }
+
+        .footer__city,
+        .footer__street {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer__city {
+            margin-left: 5px;
+            &::after {
+                @include media-min(lg) {
+                    content: ',';
+                }
+            }
+        }
+    }
+}

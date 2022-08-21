@@ -1,0 +1,69 @@
+@import '../../../../assets/styles/module-dependencies';
+
+.mdl-wizard-head {
+    @include mdl-wizard-head();
+}
+.mdl-otp {
+    padding-bottom: spacing(15);
+
+    @include media-min(md) {
+        padding-bottom: spacing(18);
+    }
+}
+
+.mdl-form-filed-otp {
+    max-width: 30rem;
+    margin: auto;
+}
+
+.mdl-page-headlines {
+    $this-map: (
+        text-align: center,
+    );
+    @include mdl-headlines($this-map);
+    margin-top: spacing(2);
+    margin-bottom: spacing(3);
+    @include media-min(md) {
+        margin-top: spacing(6);
+    }
+
+    .title {
+        margin-bottom: spacing(1);
+    }
+}
+
+.form-column {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.mdl-otp-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: spacing(3);
+    @include media-min(md) {
+        padding-top: spacing(6);
+    }
+
+    .btn-link {
+        flex-basis: 100%;
+        margin-top: spacing(1);
+        margin-right: 0;
+        @include media-min(md) {
+            font-size: type(subtitle);
+        }
+    }
+}
+
+// material override
+.mat-input-element {
+    color: color(system-highlight);
+    font-size: type(headline);
+    font-weight: $weight-bold;
+    text-align: center;
+
+    @include media-min(md) {
+        font-size: type(title);
+    }
+}

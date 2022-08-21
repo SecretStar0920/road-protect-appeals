@@ -1,0 +1,5 @@
+@include fontFace(Assistant, $font-assistant-light, $weight-light);
+@include fontFace(Assistant, $font-assistant-regular, $weight-normal);
+@include fontFace(Assistant, $font-assistant-semi-bold, $weight-semi-bold);
+@include fontFace(Assistant, $font-assistant-bold, $weight-bold);
+@include fontFace(Assistant, $font-assistant-black, $weight-black);

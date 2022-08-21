@@ -1,0 +1,67 @@
+[
+    {
+        "iconSrc": "sidwalkParkingProcessIcon",
+        "btnTxt": "חנייה על המדרכה",
+        "id": 1
+    },
+    {
+        "iconSrc": "redWhiteProcessIcon",
+        "btnTxt": "חנייה באדום לבן",
+        "id": 2
+    },
+    {
+        "iconSrc": "carStackProcessIcon",
+        "btnTxt": "הפרעה לתנועה",
+        "id": 3
+    },
+    {
+        "iconSrc": "notLegalProcessIcon",
+        "btnTxt": "חנייה בניגוד לתמרור המורה על פריקה וטעינה בלבד",
+        "id": 4
+    },
+    {
+        "iconSrc": "redWhiteProcessIcon",
+        "btnTxt": "חנייה בכחול לבן",
+        "id": 5
+    },
+    {
+        "iconSrc": "handicapProcessIcon",
+        "btnTxt": "חנייה בחניית נכים",
+        "id": 6
+    },
+    {
+        "iconSrc": "busStopProcessIcon",
+        "btnTxt": "חנייה בתחנת אוטובוס",
+        "id": 7
+    },
+    {
+        "iconSrc": "notLegalProcessIcon",
+        "btnTxt": "חנייה בניגוד לתמרור",
+        "id": 8
+    },
+    {
+        "iconSrc": "carStackProcessIcon",
+        "btnTxt": "חנייה בניגוד לתמרור והפרעה לתנועה",
+        "id": 9
+    },
+    {
+        "iconSrc": "notLegalProcessIcon",
+        "btnTxt": "חנייה בניגוד לתמרור 4ב בצירוף 6ב1",
+        "id": 10
+    },
+    {
+        "iconSrc": "stickerProcessIcon",
+        "btnTxt": "חניה ללא מדבקת תושב",
+        "id": 11
+    },
+    {
+        "iconSrc": "noPayProcessIcon",
+        "btnTxt": "לא שילמתי",
+        "id": 12
+    },
+    {
+        "iconSrc": "notLegalProcessIcon",
+        "btnTxt": "חניה במקום לא חוקי",
+        "id": 13
+    }
+]

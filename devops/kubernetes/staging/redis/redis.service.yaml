@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: redis
+    namespace: staging
+    labels:
+        app: rp-appeals
+        type: redis
+        env: staging
+spec:
+    type: ClusterIP
+    ports:
+        - port: 6379
+          protocol: TCP
+          targetPort: entry
+    selector:
+        app: rp-appeals
+        type: redis
+        env: staging
+

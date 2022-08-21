@@ -1,0 +1,42 @@
+@import '../../../../../assets/styles/module-dependencies';
+
+.about-app {
+    width: 100%;
+
+    .wrapper {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 40px;
+        align-items: flex-start;
+        justify-content: space-between;
+        .card {
+            flex-grow: 1;
+            width: 33%;
+            max-width: 270px;
+            display: flex;
+            flex-direction: row;
+            .column {
+                margin: 10px;
+                text-align: right;
+                .heading {
+                    text-align: right;
+                    font-weight: 700;
+                    font-size: 17px;
+                }
+
+                .text {
+                    text-align: right;
+                    margin: 10px 0 10px 10px;
+                    font-size: 14px;
+                    line-height: 24px;
+                }
+
+                .icon {
+                    color: $color-brand-primary;
+                    font-size: 28px;
+                }
+            }
+        }
+    }
+}

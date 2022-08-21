@@ -1,0 +1,33 @@
+@import '../../../../assets/styles/module-dependencies';
+
+.contact-us {
+    .intro {
+        min-height: 100px;
+    }
+
+    .mdl-wizard-head {
+        @include mdl-wizard-head();
+    }
+
+    .mdl-page-headlines {
+        $this-map: (
+            text-align: center,
+        );
+        @include mdl-headlines($this-map);
+    }
+
+    .mdl-page-footer {
+        @include mdl-footer();
+    }
+
+    .row.content {
+        padding-bottom: 20px;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: flex-start;
+        .column {
+            padding: 20px 40px;
+        }
+    }
+}

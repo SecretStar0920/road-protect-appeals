@@ -1,0 +1,17 @@
+export enum TicketStatus {
+    PENDING = 'Pending',
+    PENDING_MEMBERSHIP = 'Pending - Membership',
+    SENT_TO_MUNICIPALITY = 'Sent to Municipality',
+    CANNOT_TAKE = 'Cannot Take',
+    NOT_ENGAGING = 'Not Engaging',
+    DUPLICATE = 'Duplicate',
+    CLOSED = 'Closed',
+    COMPLETED = 'Completed',
+    DISMISSED = 'Dismissed',
+    REFUNDED = 'Refunded',
+    GUILTY = 'Guilty',
+    APPEAL_ACCEPTED = 'Appeal Accepted',
+    PAID_CREDIT_CARD = 'Paid - Credit Card',
+    PAID_MEMBERSHIP = 'Paid - Membership',
+    AWAITING_PAYMENT = 'Awaiting Payment',
+}

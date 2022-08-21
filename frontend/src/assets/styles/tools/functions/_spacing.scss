@@ -1,0 +1,3 @@
+@function spacing($operator) {
+    @return ($operator * $base-unit);
+}

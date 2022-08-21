@@ -1,0 +1,131 @@
+$topic-item: (
+    margin: spacing(2),
+    border: 1px solid currentColor,
+    radius: 3px,
+    shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2),
+    background-color: color(light),
+    padding: 18px 15px,
+    height: 70px,
+    color: color(primary),
+    min-lg: (
+        width: calc(50% - 40px),
+        max-width: 280px,
+        margin-x: spacing(2),
+    ),
+    icon: (
+        font-size: svg-font(topic),
+    ),
+    text: (
+        margin: spacing(1),
+        font-size: type(subtitle),
+        font-weight: $weight-bold,
+    ),
+    status-icon: (
+        left: calc(100% - 15px),
+        radius: $radius-round,
+        background-color: color(primary),
+        background-position: 50% 50%,
+        background-size: 13px,
+        size: 30px,
+    ),
+    topic: (
+        icon: (
+            selected: (
+                top: -15px,
+                background-image: url('#{$path-ui + $icon-v-check-light}'),
+            ),
+        ),
+    ),
+    reason: (
+        icon: (
+            top: 50%,
+            transform: translateY(-50%),
+            background-image: url('#{$path-ui + $icon-plus}'),
+            selected: (
+                border: 1px solid color(primary),
+                background-color: color(highlight),
+                background-image: url('#{$path-ui + $icon-v-check-primary}'),
+            ),
+        ),
+    ),
+    alt: (
+        background-color: color(highlight),
+    ),
+);
+
+.topic-item {
+    display: flex;
+    position: relative;
+    align-items: center;
+    margin-bottom: map-deep-get($topic-item, margin);
+    border: map-deep-get($topic-item, border);
+    border-radius: map-deep-get($topic-item, radius);
+    box-shadow: map-deep-get($topic-item, shadow);
+    background-color: map-deep-get($topic-item, background-color);
+    cursor: pointer;
+    padding: map-deep-get($topic-item, padding);
+    min-height: map-deep-get($topic-item, height);
+    color: map-deep-get($topic-item, color);
+
+    @include media-min(lg) {
+        flex-basis: map-deep-get($topic-item, min-lg, width);
+        margin-right: map-deep-get($topic-item, min-lg, margin-x);
+        margin-left: map-deep-get($topic-item, min-lg, margin-x);
+        min-width: map-deep-get($topic-item, min-lg, width);
+        max-width: map-deep-get($topic-item, min-lg, max-width);
+    }
+
+    &::before {
+        position: absolute;
+        left: map-deep-get($topic-item, status-icon, left);
+        border-radius: map-deep-get($topic-item, status-icon, radius);
+        background-color: map-deep-get($topic-item, status-icon, background-color);
+        background-repeat: no-repeat;
+        background-position: map-deep-get($topic-item, status-icon, background-position);
+        background-size: map-deep-get($topic-item, status-icon, background-size);
+        width: map-deep-get($topic-item, status-icon, size);
+        height: map-deep-get($topic-item, status-icon, size);
+    }
+
+    &__icon {
+        flex-shrink: 0;
+        font-size: map-deep-get($topic-item, icon, font-size);
+    }
+
+    &__text {
+        margin-right: map-deep-get($topic-item, text, margin);
+        font-size: map-deep-get($topic-item, text, font-size);
+        font-weight: map-deep-get($topic-item, text, font-weight);
+    }
+
+    &--topic {
+        &.#{topic-item}--selected {
+            &::before {
+                top: map-deep-get($topic-item, topic, icon, selected, top);
+                background-image: map-deep-get($topic-item, topic, icon, selected, background-image);
+                content: '';
+            }
+        }
+    }
+
+    &--reason {
+        &::before {
+            top: map-deep-get($topic-item, reason, icon, top);
+            transform: map-deep-get($topic-item, reason, icon, transform);
+            background-image: map-deep-get($topic-item, reason, icon, background-image);
+            content: '';
+        }
+
+        &.#{topic-item}--selected {
+            &::before {
+                border: map-deep-get($topic-item, reason, icon, selected, border);
+                background-color: map-deep-get($topic-item, reason, icon, selected, background-color);
+                background-image: map-deep-get($topic-item, reason, icon, selected, background-image);
+            }
+        }
+    }
+
+    &--alt {
+        background-color: map-deep-get($topic-item, alt, background-color);
+    }
+}

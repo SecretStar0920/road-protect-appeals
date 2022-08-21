@@ -1,0 +1,45 @@
+$box: (
+    max-lg: (
+        padding-x: spacing(1.5),
+        padding-y: spacing(1),
+    ),
+    min-lg: (
+        padding-x: spacing(3),
+        padding-y: spacing(2),
+    ),
+    highlight: (
+        background-color: color(highlight),
+        max-lg: (
+            font-size: type(subtitle),
+        ),
+        min-lg: (
+            width: 470px,
+            font-size: type(headline),
+        ),
+    ),
+);
+
+.box {
+    text-align: center;
+
+    @include media-max(lg) {
+        padding: map-deep-get($box, max-lg, padding-y) map-deep-get($box, max-lg, padding-x);
+    }
+
+    @include media-min(lg) {
+        padding: map-deep-get($box, min-lg, padding-y) map-deep-get($box, min-lg, padding-x);
+    }
+
+    &--highlight {
+        background-color: map-deep-get($box, highlight, background-color);
+
+        @include media-max(lg) {
+            font-size: map-deep-get($box, highlight, max-lg, font-size);
+        }
+
+        @include media-min(lg) {
+            max-width: map-deep-get($box, highlight, min-lg, width);
+            font-size: map-deep-get($box, highlight, min-lg, font-size);
+        }
+    }
+}

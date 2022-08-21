@@ -1,0 +1,69 @@
+<app-appeal-flow-wrapper>
+    <div class="mdl-page-layout">
+        <div class="mdl-page-layout__headline">
+            <div class="mdl-wizard-head">
+                <div class="mdl-page-headlines">
+                    <h1 class="title primary">{{ pageTitle }}</h1>
+                    <h2 class="subtitle">ניתן לבחור כמה אפשרויות</h2>
+                    <button class="mdl-page-headlines__nav" type="button" (click)="back()" *ngIf="violation">
+                        <svg-icon src="{{ imgPathService?.chevronRightUiIcon }}" class="icon"></svg-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="mdl-page-layout__content">
+            <div class="overlay" *ngIf="loading">
+                <div class="loading" *ngIf="loading">
+                    <mat-spinner class="spinner"></mat-spinner>
+                </div>
+            </div>
+
+            <div class="loaded-content" [class.blurred]="loading">
+                <ul class="mdl-topic-list" *ngIf="!violation">
+                    <li class="topic-item" *ngFor="let vio of violations; let i = index" (click)="selectViolation(vio)">
+                        <svg-icon
+                            [src]="imgPathService[getViolationMetadata(i).genericProperty.iconSrc]"
+                            class="icon topic-item__icon"
+                        ></svg-icon>
+                        <div class="topic-item__text">{{ getViolationMetadata(i).genericProperty.btnTxt }}</div>
+                    </li>
+                </ul>
+            </div>
+            <br />
+
+            <ul class="mdl-topic-list" *ngIf="violation">
+                <li
+                    class="topic-item"
+                    *ngFor="let step of currentOptions"
+                    (click)="selectOption(step)"
+                    [ngClass]="{
+                        'topic-item--selected': isSelected(step),
+                        'topic-item--topic': isTopic(step),
+                        'topic-item--reason': isReason(step)
+                    }"
+                >
+                    <svg-icon
+                        [src]="imgPathService[getUiMetadata(step).iconSrc]"
+                        class="icon topic-item__icon"
+                        *ngIf="!isReason(step)"
+                    ></svg-icon>
+                    <div class="topic-item__text">{{ getUiMetadata(step).btnTxt }}</div>
+                </li>
+            </ul>
+            <appeal-footer *ngIf="savedReasons.length"> </appeal-footer>
+            <div class="mdl-page-footer">
+                <rp-button [disabled]="!canSubmit" (click)="submitReasons()" >
+                    {{ submitButton }}
+                </rp-button>
+                <button
+                    class="btn-link btn-link--bold"
+                    mat-button
+                    [disabled]="!lastOptionIsSelected()"
+                    (click)="addReasonAndStartAgain()"
+                >
+                    רגע, יש לי עוד סיבה
+                </button>
+            </div>
+        </div>
+    </div>
+</app-appeal-flow-wrapper>

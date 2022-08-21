@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: backend
+    namespace: staging
+spec:
+    strategy:
+        type: RollingUpdate
+        rollingUpdate:
+            maxSurge: 1
+            maxUnavailable: 0
+    replicas: 1
+    selector:
+        matchLabels:
+            app: rp-appeals
+            type: backend
+            env: staging
+    template:
+        metadata:
+            labels:
+                app: rp-appeals
+                type: backend
+                env: staging
+        spec:
+            containers:
+                - name: backend
+                  image: eu.gcr.io/appeals-265314/backend:latest
+                  imagePullPolicy: Always
+                  volumeMounts:
+                      - name: storage
+                        mountPath: /app/storage
+                        subPath: storage
+                  ports:
+                      - containerPort: 3001
+                        name: entry
+                        protocol: TCP
+                  livenessProbe:
+                      httpGet:
+                          path: /api/health
+                          port: 3001
+                      initialDelaySeconds: 120
+                      periodSeconds: 30
+                  readinessProbe:
+                      httpGet:
+                          path: /api/health
+                          port: 3001
+                      initialDelaySeconds: 120
+                      periodSeconds: 30
+                  envFrom:
+                      - secretRef:
+                            name: backend
+            volumes:
+                - name: storage
+                  persistentVolumeClaim:
+                      claimName: storage-pvc

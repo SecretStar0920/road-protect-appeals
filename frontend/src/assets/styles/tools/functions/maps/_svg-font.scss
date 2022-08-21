@@ -1,0 +1,10 @@
+// SVG Icon font-size managment
+@function svg-font($keys...) {
+    $map: $svg-scale;
+
+    @if $map {
+        @return map-deep-get($map, $keys...);
+    } @else {
+        @error "avalilable keys are defined in '$type' map";
+    }
+}

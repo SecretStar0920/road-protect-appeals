@@ -1,0 +1,45 @@
+@import '../../../../../assets/styles/module-dependencies';
+
+.about-partners {
+    width: 100%;
+
+    .wrapper {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 40px;
+        align-items: stretch;
+        justify-content: space-between;
+        .card {
+            flex-grow: 1;
+            width: 33%;
+            max-width: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .column {
+                margin: 10px;
+                text-align: right;
+                .heading {
+                    text-align: right;
+                    font-weight: 700;
+                    font-size: 17px;
+                }
+
+                .text {
+                    text-align: right;
+                    margin: 10px 0 10px 10px;
+                    font-size: 14px;
+                    line-height: 24px;
+                }
+
+                &.button {
+                    padding: 5px;
+                    text-align: center;
+                    border: 1px solid $color-brand-primary;
+                    color: $color-brand-primary;
+                }
+            }
+        }
+    }
+}

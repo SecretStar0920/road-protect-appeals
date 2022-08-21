@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: database-ext
+    namespace: staging
+    labels:
+        app: rp-appeals
+        type: database
+        env: staging
+spec:
+    externalTrafficPolicy: Cluster
+    type: LoadBalancer
+    ports:
+        - port: 5432
+          name: entry
+          protocol: TCP
+          nodePort: 32000
+    selector:
+        app: rp-appeals
+        type: database
+        env: staging

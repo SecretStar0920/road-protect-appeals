@@ -1,0 +1,117 @@
+<div class="ticket__header">
+  <preview-pdf [previewPdfUrl]="previewPdfUrl"></preview-pdf>
+    <div class="ticket__status {{ getClassByTicketStatus(ticket.ticketStatusName) }}">
+        {{ ticket.ticketStatusName | ticketStatus }}
+    </div>
+    <div class="ticket__action-buttons">
+        <button type="button" *ngIf="isSent(ticket.ticketStatusName)" (click)="downloadPdf(ticket.id)">
+            <svg-icon [src]="imgPathService?.pdfUiIcon" class="icon" [attr.name]="pdf"></svg-icon>
+        </button>
+        <button type="button" (click)="delete(ticket.id)">
+            <svg-icon [src]="imgPathService?.trashUiIcon" class="icon" [attr.name]="delete"></svg-icon>
+        </button>
+    </div>
+</div>
+<div class="ticket__body">
+    <div class="data-col">
+        <div class="data-sum__row data-sum__row--title">
+            <h5 class="data-sum__title subtitle">פרטי הדוח</h5>
+        </div>
+        <label class="data-sum__row data-sum__row--data" for="">
+            <span class="data-sum__key">עיר הדוח</span>
+            <span class="data-sum__value"> {{ ticket.violationCity }}</span>
+        </label>
+        <label class="data-sum__row data-sum__row--data" for="">
+            <span class="data-sum__key">תאריך הדוח</span>
+            <span class="data-sum__value"> {{ getDateAndTime(ticket.violationDate, 'date') }}</span>
+        </label>
+        <label class="data-sum__row data-sum__row--data" for="">
+            <span class="data-sum__key">שעת הדוח</span>
+            <span class="data-sum__value"> {{ getDateAndTime(ticket.violationDate, 'time') }}</span>
+        </label>
+        <label class="data-sum__row data-sum__row--data" for="">
+            <span class="data-sum__key">רחוב הדוח</span>
+            <span class="data-sum__value"> {{ ticket.violationAddress | streetDisplay }}</span>
+        </label>
+        <label class="data-sum__row data-sum__row--data" for="">
+            <span class="data-sum__key">סוג הרכב</span>
+            <span class="data-sum__value"> {{ ticket.vehicleMake }}</span>
+        </label>
+        <label class="data-sum__row data-sum__row--data" for="">
+            <span class="data-sum__key">סוג הרכב</span>
+            <span class="data-sum__value"> {{ ticket.vehicleMake }} {{ ticket.modelType }}</span>
+        </label>
+        <label class="data-sum__row data-sum__row--data" for="">
+            <span class="data-sum__key">מספר רכב</span>
+            <span class="data-sum__value"> {{ ticket.licensePlate }}</span>
+        </label>
+        <label class="data-sum__row data-sum__row--data" for="">
+            <span class="data-sum__key">הסכום לתשלום</span>
+            <span class="data-sum__value"> {{ ticket.amount }} {{ ticket.amount ? '₪' : '' }} </span>
+        </label>
+    </div>
+
+    <div class="data-col ticket__details">
+        <div class="data-sum__row data-sum__row--title">
+            <h5 class="data-sum__title subtitle">פרטי הדוח</h5>
+        </div>
+        <ng-container>
+            <label class="data-sum__row data-sum__row--data" for="">
+                <span class="data-sum__key">סיבת הדוח</span>
+                <span class="data-sum__value"> {{ getViolation(ticket.violationCodes) }} </span>
+            </label>
+            <label class="data-sum__row data-sum__row--data" for="">
+                <span class="data-sum__key">סיבת הערעור</span>
+                <span class="data-sum__value"> {{ getTopicsForTicket(ticket.questionsAndAnswers) }} </span>
+            </label>
+            <div class="ticket__images">
+                <ng-container *ngFor="let document of documentsToShow(ticket) | slice: 0:2; let i = index">
+                    <div class="ticket__image">
+                        <img class="ticket__image-src" [src]="document.signedUrl" />
+                    </div>
+                </ng-container>
+            </div>
+        </ng-container>
+    </div>
+
+    <div class="data-col ticket__appeal-details">
+        <ng-container *ngIf="isIncomplete(ticket.ticketStatusName)">
+            <button mat-button class="btn-mat-custom-ghost" type="button" (click)="onClick(ticket)">
+                השלמת פרטים
+            </button>
+        </ng-container>
+        <ng-container *ngIf="isUnpaid(ticket.ticketStatusName)">
+            <button mat-button class="btn-mat-custom-ghost" type="button" (click)="onClick(ticket)">
+                סיום התהליך ושליחה
+            </button>
+        </ng-container>
+        <ng-container *ngIf="isPaid(ticket.ticketStatusName)">
+            <button mat-button class="btn-mat-custom-ghost" type="button" (click)="onClick(ticket)">
+                שליחת הערעור לעירייה
+            </button>
+        </ng-container>
+    </div>
+</div>
+<div class="ticket__footer" *ngIf="isSent(ticket.ticketStatusName)">
+    <span class="ticket__appeal-status"> האם הערעור התקבל? </span>
+    <button class="ticket__appeal-button" (click)="voteUp(ticket)">
+        <svg-icon
+            [src]="
+                isApproved(ticket.ticketStatusName)
+                    ? imgPathService?.thumbsUpFilledUiIcon
+                    : imgPathService?.thumbsUpUiIcon
+            "
+            class="icon"
+        ></svg-icon>
+    </button>
+    <button class="ticket__appeal-button" (click)="voteDown(ticket)">
+        <svg-icon
+            [src]="
+                isGuilty(ticket.ticketStatusName)
+                    ? imgPathService?.thumbsDownFilledUiIcon
+                    : imgPathService?.thumbsDownUiIcon
+            "
+            class="icon"
+        ></svg-icon>
+    </button>
+</div>

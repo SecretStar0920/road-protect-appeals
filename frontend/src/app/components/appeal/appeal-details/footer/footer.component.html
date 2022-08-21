@@ -1,0 +1,10 @@
+<div class="footer-container" *ngIf="topics.length">
+    <h2>{{ title }}</h2>
+    <div *ngFor="let topic of topics" class="topic">
+        <button class="icon" type="button" (click)="removeTopic(topic.name)">
+            <img src="assets/images/icons/ui/close.svg" alt="remove" />
+        </button>
+        <span class="name">{{ getUiMetaData(topic.name) }}</span>
+        <span class="reasons">{{ getNumberOfReasons(topic) }}</span>
+    </div>
+</div>

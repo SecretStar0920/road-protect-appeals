@@ -1,0 +1,11 @@
+<button class="dialog__close" (click)="dismiss()">
+    <svg-icon src="{{ imgPathService?.closeUiIcon }}" class="icon"></svg-icon>
+</button>
+<div class="dialog__body text-center">
+    <svg-icon src="{{ imgPathService?.errorUiIcon }}" class="icon icon--dialog-error"></svg-icon>
+    <div class="dialog__title">לתשומת לבך,</div>
+    <div class="dialog__text">עברו 30 יום מקבלת הדוח.</div>
+</div>
+<div class="dialog__footer">
+    <button mat-button class="btn-mat-custom" type="button" (click)="dismiss()">הבנתי</button>
+</div>

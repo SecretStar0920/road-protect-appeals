@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: backend
+    namespace: production
+    labels:
+        app: rp-appeals
+        type: backend
+        env: prod
+spec:
+    type: ClusterIP
+    ports:
+        - port: 3001
+          name: entry
+          protocol: TCP
+          targetPort: 3001
+    selector:
+        app: rp-appeals
+        type: backend
+        env: prod
+

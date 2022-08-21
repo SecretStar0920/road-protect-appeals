@@ -1,0 +1,55 @@
+// sass-lint:disable no-color-hex
+$color-stk-curious-blue: #1eabdf;
+$color-stk-white: #fff;
+$color-stk-black: #000;
+$color-stk-emperor: #535353;
+$color-stk-tory-blue: #1253a2;
+$color-stk-alto: #d8d8d8;
+$color-stk-mercury: #e7e7e7;
+$color-stk-polar: #e6f5f9;
+$color-stk-polar-alt: #f4fbfd;
+$color-stk-torch-red: #f41b1b;
+$color-stk-green: #008000;
+$color-stk-aluminium: #a8adb7;
+$color-stk-silver: #bebebe;
+$color-stk-sail: #c2e8fa;
+$color-stk-boulder: #7a7a7a;
+$color-stk-wild-sand: #f5f5f5;
+
+// sass-lint:enable no-color-hex
+
+$color-brand-primary: $color-stk-curious-blue;
+$color-brand-secondary: rgba($color-brand-primary, 0.2);
+$color-brand-highlight: $color-stk-polar;
+$color-brand-alt: $color-stk-tory-blue;
+$color-brand-type: $color-stk-emperor;
+$color-brand-body: $color-stk-emperor;
+$color-brand-error: $color-stk-torch-red;
+$color-brand-success: $color-stk-green;
+$color-brand-system: $color-stk-mercury;
+$color-brand-system-alt: $color-stk-alto;
+$color-brand-system-highlight: $color-stk-boulder;
+$color-brand-control: $color-stk-silver;
+$color-brand-light: $color-stk-white;
+$color-brand-dark: $color-stk-black;
+$color-brand-border-1: $color-stk-aluminium;
+
+$color: (
+    primary: $color-brand-primary,
+    secondary: $color-brand-secondary,
+    highlight: $color-brand-highlight,
+    alt: $color-brand-alt,
+    type: $color-brand-type,
+    system: $color-brand-system,
+    system-alt: $color-brand-system-alt,
+    system-highlight: $color-brand-system-highlight,
+    control: $color-brand-control,
+    error: $color-brand-error,
+    success: $color-brand-success,
+    mute: $color-brand-alt,
+    active: $color-brand-primary,
+    disabled: $color-brand-alt,
+    light: $color-brand-light,
+    dark: $color-brand-dark,
+    border-1: $color-brand-border-1,
+);

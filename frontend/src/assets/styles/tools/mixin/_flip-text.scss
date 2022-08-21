@@ -1,0 +1,17 @@
+@mixin flip-text($dir) {
+    @if $dir == 'start' {
+        [dir='rtl'] & {
+            text-align: right;
+        }
+        [dir='ltr'] & {
+            text-align: left;
+        }
+    } @else if $dir == 'end' {
+        [dir='rtl'] & {
+            text-align: left;
+        }
+        [dir='ltr'] & {
+            text-align: right;
+        }
+    }
+}

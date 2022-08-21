@@ -1,0 +1,18 @@
+// Deep map functions
+// Function intro:
+// - read multi level map hierarchies
+// - loop through each level maps keys
+
+// Deep Map
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+@import 'maps/color';
+@import 'maps/image';
+@import 'maps/svg-font';
+@import 'maps/type';
+@import 'maps/z-index';

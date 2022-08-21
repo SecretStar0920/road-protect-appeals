@@ -1,0 +1,110 @@
+$steps: (
+    margin-bottom: spacing(1),
+    min-lg: (
+        margin-bottom: spacing(5),
+    ),
+    item: (
+        width: 250px,
+        height: 45px,
+        color: color(system),
+        min-lg: (
+            font-size: 24px,
+        ),
+        before: (
+            background-color: color(system),
+            height: 5px,
+        ),
+        after: (
+            transition: width 0.3s ease-in-out,
+            background-color: color(primary),
+            height: 5px,
+        ),
+        active: (
+            color: color(primary),
+            font-weight: $weight-bold,
+        ),
+        complete: (
+            color: color(type),
+        ),
+    ),
+    item-link: (
+        padding-x: spacing(1),
+    ),
+);
+
+.steps {
+    display: flex;
+    margin-bottom: map-deep-get($steps, margin-bottom);
+    @include media-min(lg) {
+        margin-bottom: map-deep-get($steps, min-lg, margin-bottom);
+    }
+
+    &__item {
+        display: flex;
+        position: relative;
+        align-items: center;
+        flex-grow: 1;
+        justify-content: center;
+        max-width: map-deep-get($steps, item, width);
+        min-height: map-deep-get($steps, item, height);
+        color: map-deep-get($steps, item, color);
+        @include media-min(lg) {
+            font-size: map-deep-get($steps, item, min-lg, font-size);
+        }
+
+        &::before,
+        &::after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            content: '';
+        }
+
+        &::before {
+            background-color: map-deep-get($steps, item, before, background-color);
+            width: 100%;
+            height: map-deep-get($steps, item, before, height);
+        }
+
+        &::after {
+            transition: map-deep-get($steps, item, after, transition);
+            background-color: map-deep-get($steps, item, after, background-color);
+            width: 0;
+            height: map-deep-get($steps, item, after, height);
+        }
+
+        &--active {
+            color: map-deep-get($steps, item, active, color);
+            font-weight: map-deep-get($steps, item, active, font-weight);
+
+            &::after {
+                width: 100%;
+            }
+        }
+
+        &--complete {
+            color: color(type);
+
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+
+    &__item-link {
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+        justify-content: center;
+        cursor: default;
+        padding-right: map-deep-get($steps, item-link, padding-x);
+        padding-left: map-deep-get($steps, item-link, padding-x);
+        height: 100%;
+        font-weight: inherit;
+
+        &:active,
+        &:focus {
+            outline: none;
+        }
+    }
+}

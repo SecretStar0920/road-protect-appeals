@@ -1,0 +1,31 @@
+<header class="header" [ngClass]="{ 'intro--header': intro }">
+    <a class="header__logo" [routerLink]="['/']">
+        <img class="logo mobile" src="./assets/images/logo.png" alt="logo" />
+        <img class="logo desktop" src="./assets/images/logo-desktop.png" alt="logo" />
+    </a>
+    <div class="header__menu top-menu">
+        <button class="top-menu__burger burger" [ngClass]="{ active: opened }" (click)="toggleBurger()">
+            <svg-icon src="{{ imgPathService?.burgerUiIcon }}" class="icon burger"></svg-icon>
+        </button>
+        <ul class="top-menu__list">
+            <li class="top-menu__item" *ngIf="authService.isLoggedIn" (click)="logout()">
+                <a class="top-menu__link" routerLink="">התנתק</a>
+            </li>
+            <li class="top-menu__item">
+                <a class="top-menu__link" routerLink="/contact-us">צור קשר</a>
+            </li>
+            <li class="top-menu__item">
+                <a class="top-menu__link" routerLink="/pricing">עלויות</a>
+            </li>
+            <li class="top-menu__item">
+                <a class="top-menu__link" routerLink="/about-us">אודותינו</a>
+            </li>
+            <li class="top-menu__item">
+                <a class="top-menu__link" routerLink="">הגשת ערעור !</a>
+            </li>
+            <li class="top-menu__item">
+                <a class="top-menu__link" routerLink="">ראשי</a>
+            </li>
+        </ul>
+    </div>
+</header>

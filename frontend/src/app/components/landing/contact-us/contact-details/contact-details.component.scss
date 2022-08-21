@@ -1,0 +1,14 @@
+@import '../../../../../assets/styles/module-dependencies';
+
+.contact-details {
+    .item {
+        margin: 40px 0;
+
+        .icon {
+            vertical-align: middle;
+            display: inline-block;
+            margin-left: 10px;
+            color: $color-stk-curious-blue;
+        }
+    }
+}

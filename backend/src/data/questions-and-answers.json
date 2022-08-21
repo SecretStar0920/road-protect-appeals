@@ -1,0 +1,92 @@
+{
+    "topicId-01": {
+        "reasonId-01-01": "7",
+        "reasonId-01-02": {
+            "reasonId-01-02-01": {
+                "answerId-02-01-01": "16",
+                "answerId-02-01-02": "20"
+            },
+            "answerId-01-02-02": "20"
+        },
+        "reasonId-01-03": {
+            "reasonId-01-03-01": {
+                "answerId-03-01-01": "16",
+                "answerId-03-01-02": "20"
+            },
+            "answerId-01-03-02": "20"
+        },
+        "reasonId-01-04": "18",
+        "reasonId-01-05": "25, 6",
+        "reasonId-01-06": "17",
+        "reasonId-01-07": "22",
+        "reasonId-01-08": "8",
+        "reasonId-01-09": "6",
+        "reasonId-01-10": "21",
+        "reasonId-01-11": "29"
+    },
+    "topicId-02": {
+        "reasonId-02-01": "12"
+    },
+    "topicId-03": {
+        "reasonId-03-01": "19"
+    },
+    "topicId-04": {
+        "reasonId-04-01": "33"
+    },
+    "topicId-05": {
+        "reasonId-05-01": "13",
+        "reasonId-05-02": "38",
+        "reasonId-05-03": "42",
+        "reasonId-05-04": {
+            "answerId-05-04-01": "3",
+            "answerId-05-04-02": "4",
+            "answerId-05-04-03": "15"
+        }
+    },
+    "topicId-06": {
+        "reasonId-06-01": "6",
+        "reasonId-06-02": "6",
+        "reasonId-06-03": "21"
+    },
+    "topicId-07": {
+        "reasonId-07-01": "34"
+    },
+    "topicId-08": {
+        "reasonId-08-01": {
+            "answerId-08-01-01": "14",
+            "answerId-08-01-02": "28"
+        },
+        "answerId-08-02": "28"
+    },
+    "topicId-09": {
+        "reasonId-09-01": "1",
+        "reasonId-09-02": "30",
+        "reasonId-09-03": "35"
+    },
+    "topicId-10": {
+        "reasonId-10-01": "5",
+        "reasonId-10-02": {
+            "answerId-10-02-01": "5",
+            "answerId-10-02-02": "40",
+            "answerId-10-02-03": "5"
+        }
+    },
+    "topicId-11": {
+        "reasonId-11-01": "10,11"
+    },
+    "topicId-12": {
+        "reasonId-12-01": "2,6",
+        "reasonId-12-02": "6,9",
+        "reasonId-12-03": "20",
+        "reasonId-12-04": "23",
+        "reasonId-12-05": "37",
+        "reasonId-12-06": "9"
+    },
+    "topicId-13": {
+        "reasonId-13-01": "6,26"
+    },
+    "topicId-14": {
+        "reasonId-14-01": "31",
+        "reasonId-14-02": "24"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "esnext",
+        "moduleResolution": "node",
+        "types": ["reflect-metadata"],
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "sourceMap": true,
+        "outDir": "./dist",
+        "baseUrl": "./",
+        "declaration": true,
+        "declarationMap": true,
+        "noImplicitAny": false,
+        "removeComments": true,
+        "noLib": false,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "importHelpers": true,
+        "downlevelIteration": true,
+        "strict": true,
+        "strictPropertyInitialization": false,
+        "resolveJsonModule": true,
+        "paths": {
+            "@config": [
+              "./src/config.ts"
+            ],
+            "@database/*": [
+              "./src/modules/database/*"
+            ],
+            "@logger": [
+              "./src/services/logger.service.ts"
+            ]
+        }
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "dist"]
+}

@@ -1,0 +1,44 @@
+$mat-option: (
+    border: 1px solid color(system),
+    background-color: color(light),
+    height: 30px,
+    text: (
+        color: color(type),
+        color-active: color(primary),
+    ),
+);
+
+.mat-option {
+    font-family: inherit;
+
+    .cdk-overlay-container .mat-select-panel & {
+        display: flex;
+        align-items: center;
+        border-bottom: map-deep-get($mat-option, border);
+        background-color: map-deep-get($mat-option, background-color);
+        height: inherit !important;
+        min-height: map-deep-get($mat-option, height);
+        line-height: inherit !important;
+
+        .mat-option-ripple {
+            display: none;
+            visibility: hidden;
+        }
+    }
+
+    &.mat-selected {
+        .cdk-overlay-container .mat-select-panel & {
+            background-color: map-deep-get($mat-option, background-color);
+        }
+    }
+}
+
+.mat-option-text {
+    .mat-option & {
+        color: map-deep-get($mat-option, text, color);
+    }
+
+    .mat-option.mat-active & {
+        color: map-deep-get($mat-option, text, color-active);
+    }
+}

@@ -1,0 +1,10 @@
+// FONT
+@function get-image($keys...) {
+    $map: $images-src;
+
+    @if $map {
+        @return url(#{map-deep-get($map, $keys...)});
+    } @else {
+        @error "avalilable keys are defined in '$type' map";
+    }
+}

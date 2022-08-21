@@ -1,0 +1,178 @@
+$form: (
+    container: (
+        max-lg: (
+            padding-x: spacing(3),
+        ),
+        condensed: (
+            min-lg: (
+                width: 400px,
+            ),
+        ),
+    ),
+    body: (
+        margin-bottom: spacing(1),
+    ),
+    footer: (
+        padding: spacing(3),
+    ),
+    text: (
+        margin-bottom: spacing(0.5),
+        font-size: type(subtitle),
+    ),
+    form-field: (
+        gap: spacing(1),
+        prefix: (
+            width: 90px,
+        ),
+        expiration: (
+            max-lg: (
+                width: 70px,
+            ),
+        ),
+        no-label: (
+            gap: 31px,
+        ),
+    ),
+);
+
+.form-container {
+    @include media-max(lg) {
+        padding-right: map-deep-get($form, container, max-lg, padding-x);
+        padding-left: map-deep-get($form, container, max-lg, padding-x);
+        width: 100%;
+    }
+
+    &--condensed-min-lg {
+        @include media-min(lg) {
+            margin: auto;
+            width: map-deep-get($form, container, condensed, min-lg, width);
+        }
+    }
+}
+
+.form-body {
+    flex-grow: 1;
+    margin-bottom: map-deep-get($form, body, margin-bottom);
+}
+
+.form-footer {
+    display: flex;
+    justify-content: center;
+    padding: map-deep-get($form, footer, padding-);
+}
+
+.form-label {
+    flex-grow: 1;
+
+    &--block {
+        width: 100%;
+    }
+
+    &__text {
+        margin-bottom: map-deep-get($form, text, margin-bottom);
+        font-size: map-deep-get($form, text, font-size);
+        width: 100%;
+    }
+}
+
+.form-row {
+    display: flex;
+
+    &--half-min-lg {
+        @include media-min(lg) {
+            width: calc(50% - #{map-deep-get($form, form-field, gap)});
+        }
+    }
+
+    &--wrapp-max-lg {
+        @include media-max(lg) {
+            flex-wrap: wrap;
+        }
+    }
+
+    &--justify-last {
+        > .form-field:last-child {
+            margin-right: auto !important;
+        }
+    }
+
+    &--reverse {
+        flex-direction: row-reverse;
+    }
+}
+
+.form-field {
+    flex-basis: 50%;
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    > div {
+        width: 100%;
+    }
+
+    &.form-field--wrapp-max-lg + & {
+        @include media-min(lg) {
+            margin-right: map-deep-get($form, form-field, gap);
+        }
+    }
+
+    &:not(.form-field--wrapp-max-lg) + & {
+        margin-right: map-deep-get($form, form-field, gap);
+
+        .form-row--reverse & {
+            margin-right: 0;
+            margin-left: map-deep-get($form, form-field, gap);
+        }
+
+        .row--wrapp-max-lg & {
+            @include media-max(lg) {
+                margin-right: map-deep-get($form, form-field, gap);
+            }
+        }
+    }
+
+    &--prefix {
+        min-width: map-deep-get($form, form-field, prefix, width);
+        max-width: map-deep-get($form, form-field, prefix, width);
+
+        &-expiration {
+            @include media-max(lg) {
+                max-width: map-deep-get($form, form-field, expiration, max-lg, width);
+            }
+            @include media-min(lg) {
+                max-width: calc(25% - #{map-deep-get($form, form-field, gap)});
+            }
+        }
+    }
+
+    &--no-label {
+        //todo: gap is an hardcoded value, revise
+        margin-top: map-deep-get($form, form-field, no-label, gap);
+    }
+
+    &--wrapp-max-lg {
+        @include media-max(lg) {
+            min-width: 100%;
+        }
+    }
+
+    &--calc-half-min-lg {
+        @include media-min(lg) {
+            min-width: calc(50% - #{map-deep-get($form, form-field, gap)});
+        }
+    }
+
+    &:not(:last-child) {
+        .row--wrapp-max-lg & {
+            margin-left: map-deep-get($form, form-field, gap);
+        }
+    }
+
+    & + & {
+        @include media-min(lg) {
+            .row--wrapp-max-lg & {
+                margin-right: map-deep-get($form, form-field, gap);
+            }
+        }
+    }
+}

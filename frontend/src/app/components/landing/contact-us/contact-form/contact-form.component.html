@@ -1,0 +1,67 @@
+<form [formGroup]="formGroup" class="form-container form-container--condensed-min-lg column-grow">
+    <div class="form-body">
+        <div class="form-row">
+            <div class="form-field">
+                <label class="form-label">
+                    <div class="form-label__text">*שם מלא</div>
+                    <mat-form-field appearance="outline">
+                        <input type="text" matInput formControlName="name" maxlength="20" autofocus />
+                        <mat-error>שדה נדרש</mat-error>
+                    </mat-form-field>
+                </label>
+            </div>
+        </div>
+        <div class="form-row form-row--reverse">
+            <div class="form-field form-field--prefix form-field--no-label">
+                <label class="form-label">
+                    <mat-form-field appearance="outline">
+                        <mat-select class="custom-select" matNativeControl formControlName="phonePrefix">
+                            <mat-option *ngFor="let item of phonePrefixArray" value="{{ item }}">
+                                {{ item }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </label>
+            </div>
+            <div class="form-field">
+                <label class="form-label">
+                    <div class="form-label__text">*טלפון</div>
+                    <mat-form-field appearance="outline">
+                        <input
+                            maxlength="7"
+                            oninput="this.value = enableOnlyNumbers(this.value)"
+                            type="tel"
+                            matInput
+                            formControlName="phone"
+                        />
+                        <mat-error>שדה נדרש</mat-error>
+                    </mat-form-field>
+                </label>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-field">
+                <label class="form-label">
+                    <div class="form-label__text">*אימייל</div>
+                    <mat-form-field appearance="outline">
+                        <input type="email" matInput formControlName="email" maxlength="40" />
+                        <mat-error>שדה נדרש</mat-error>
+                    </mat-form-field>
+                </label>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-field">
+                <label class="form-label">
+                    <div class="form-label__text">רשום כאן את הפניה</div>
+                    <mat-form-field appearance="outline">
+                        <textarea class="text-area" type="text" matInput formControlName="message"></textarea>
+                    </mat-form-field>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="mdl-page-footer">
+        <rp-button type="submit" [onClick]="onSubmit.bind(this)" [disabled]="!isFormValid">שלח</rp-button>
+    </div>
+</form>

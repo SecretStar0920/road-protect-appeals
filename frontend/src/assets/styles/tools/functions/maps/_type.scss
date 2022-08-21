@@ -1,0 +1,10 @@
+// FONT
+@function type($keys...) {
+    $map: $type;
+
+    @if $map {
+        @return map-deep-get($map, $keys...);
+    } @else {
+        @error "avalilable keys are defined in '$type' map";
+    }
+}

@@ -1,0 +1,53 @@
+// Pathes
+$path-assets: 'src/assets/';
+$path-fonts: #{$path-assets} + 'fonts/';
+$path-image: #{$path-assets} + 'images/';
+$path-icons: #{$path-image} + 'icons/';
+$path-ui: #{$path-icons} + 'ui/';
+
+//Images
+$image-intro-bg-desktop: 'intro-bg-desktop.svg';
+$image-intro-bg-mobile: 'intro-bg-mobile.svg';
+$image-head_bg-secondary: 'head_bg-secondary.svg';
+$image-bg-desktop-building: 'bg-desktop-building.svg';
+//Icons
+$icon-v-check: 'v-check.svg';
+$icon-v-check-light: 'v-check-light.svg';
+$icon-v-check-primary: 'v-check-primary.svg';
+$icon-plus: 'plus.svg';
+$icon-calander: 'date.svg';
+$icon-time: 'time.svg';
+$icon-chevron-left: 'chevron-left.svg';
+$icon-chevron-right: 'chevron-right.svg';
+$icon-chevron-down: 'chevron-down.svg';
+$icon-chevron-up: 'chevron-up.svg';
+$icon-thumb-empty: 'thumb-empty.svg';
+$images-src: (
+    image: (
+        min-lg: (
+            main-bg: #{$path-image + $image-bg-desktop-building},
+        ),
+        intro: (
+            bg: (
+                max-lg: #{$path-image + $image-intro-bg-mobile},
+                min-lg: #{$path-image + $image-intro-bg-desktop},
+            ),
+        ),
+        head: (
+            bg-secondary: #{$path-image + $image-head_bg-secondary},
+        ),
+    ),
+    icon: (
+        ui: (
+            check: #{$path-ui + $icon-v-check},
+            check-light: #{$path-ui + $icon-v-check-light},
+            check-primary: #{$path-ui + $icon-v-check-primary},
+            chevron-left: #{$path-ui + $icon-chevron-left},
+            chevron-down: #{$path-ui + $icon-chevron-down},
+            chevron-up: #{$path-ui + $icon-chevron-up},
+            plus: $path-ui + $icon-plus,
+            calander: #{$path-ui + $icon-calander},
+            time: #{$path-ui + $icon-time},
+        ),
+    ),
+);

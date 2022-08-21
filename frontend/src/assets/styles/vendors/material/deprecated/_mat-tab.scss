@@ -1,0 +1,41 @@
+.mat-tab-link {
+    font-size: 16px;
+    color: #535353;
+    white-space: normal !important;
+    min-width: 60px !important;
+    flex-grow: 1;
+
+    @include media-max(lg) {
+    }
+
+    @include media-min(lg) {
+        font-size: 24px;
+    }
+
+    > * {
+        display: none !important;
+    }
+}
+
+.mat-tab-nav-bar {
+    border-bottom: none;
+
+    .mat-tab-label-active {
+        font-weight: 700;
+        color: #1eabdf;
+    }
+
+    .mat-tab-links {
+        border-top: 3px solid #e7e7e7;
+
+        @include media-min(lg) {
+            border-width: 6px;
+        }
+
+        .mat-ink-bar {
+            bottom: 100%;
+            height: 6px;
+            background-color: #1eabdf;
+        }
+    }
+}

@@ -1,0 +1,11 @@
+<ul class="steps">
+    <li
+        *ngFor="let tab of tabs; let i = index"
+        class="steps__item"
+        routerLinkActive="steps__item--active"
+        [ngClass]="{ 'steps__item--complete': checkComplete(tab.label) }"
+        disabled
+    >
+        <button class="steps__item-link" [routerLink]="tab.path" disabled>{{ tab.label }}</button>
+    </li>
+</ul>

@@ -1,0 +1,33 @@
+$type-14: 1.4rem;
+$type-16: 1.6rem;
+$type-18: 1.8rem;
+$type-20: 2rem;
+$type-24: 2.4rem;
+$type-28: 2.8rem;
+$type-56: 5.6rem;
+
+$type-reset: $type-16;
+$type-headline: $type-28;
+$type-headline-min-lg: $type-56;
+$type-title: $type-24;
+$type-subtitle: $type-20;
+$type-subtitle-min-lg: $type-28;
+$type-text: $type-18;
+$type-body: $type-16;
+$type-caption: $type-14;
+
+$type-line-height-headline: 1.1;
+$type-line-height-flat: 1;
+
+$type: (
+    headline: $type-headline,
+    title: $type-title,
+    subtitle: $type-subtitle,
+    text: $type-text,
+    body: $type-body,
+    caption: $type-caption,
+    min-lg: (
+        headline: $type-headline-min-lg,
+        subtitle: $type-subtitle-min-lg,
+    ),
+);

@@ -1,0 +1,21 @@
+$mat-progress-bar: (
+    radius: 9px,
+    height: 9px,
+    buffer-color: color(system),
+    bar-color: color(primary),
+);
+
+.mat-progress-bar {
+    &.custom-progress {
+        border-radius: map-deep-get($mat-progress-bar, radius);
+        height: map-deep-get($mat-progress-bar, height);
+
+        .mat-progress-bar-buffer {
+            background-color: map-deep-get($mat-progress-bar, buffer-color);
+        }
+
+        .mat-progress-bar-fill::after {
+            background-color: map-deep-get($mat-progress-bar, bar-color);
+        }
+    }
+}

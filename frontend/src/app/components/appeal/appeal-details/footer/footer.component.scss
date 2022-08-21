@@ -1,0 +1,31 @@
+.footer-container {
+    width: auto;
+    margin-top: 10px;
+
+    .topic {
+        height: 72px;
+        background-color: #e6f5f9;
+        margin-top: 5px;
+        display: flex;
+        align-items: center;
+
+        .icon {
+          opacity: 0.5;
+            width: 20px;
+            height: 20px;
+            outline: 0;
+            cursor: pointer;
+            margin: 30px;
+        }
+
+        .name {
+            font-weight: bold;
+            font-size: 22px;
+            margin: 0 10px;
+        }
+
+        .reasons {
+            font-size: 20px;
+        }
+    }
+}

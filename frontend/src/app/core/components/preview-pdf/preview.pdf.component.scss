@@ -1,0 +1,27 @@
+.preview-pdf {
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-right: unset !important;
+    background-color: rgba(0, 0, 0, 0.6);
+
+    button {
+        color: white;
+        position: relative;
+        width: 100px;
+        height: 100px;
+        top: 15px;
+        right: 15px;
+    }
+
+    iframe {
+        width: 55vw;
+        height: 80vh;
+        position: absolute;
+        top: 10vh;
+        transform: translate(-30%);
+    }
+}

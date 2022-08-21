@@ -1,0 +1,32 @@
+$mdl-headlines-map: (
+    text-align: center,
+    primary: (
+        min-lg: (
+            width: 400px,
+            text-align: right,
+            padding-right: spacing(2),
+        ),
+    ),
+) !default;
+
+@mixin mdl-headlines($map: $mdl-headlines-map) {
+    position: relative;
+    flex-grow: 1;
+    text-align: center;
+    @if map-has-key($map, primary) {
+        @include media-min(lg) {
+            padding-right: map-deep-get($map, primary, min-lg, padding-right);
+            max-width: map-deep-get($map, primary, min-lg, width);
+            text-align: map-deep-get($map, primary, min-lg, text-align);
+        }
+    }
+
+    &__nav {
+        position: absolute;
+        font-size: 24px;
+        left: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+}

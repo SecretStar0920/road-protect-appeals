@@ -1,0 +1,46 @@
+$mdl-master-detail: ();
+
+@mixin mdl-master-detail($map: $mdl-master-detail) {
+    padding-right: 30px;
+    padding-left: 30px;
+    display: flex;
+    flex-grow: 1;
+
+    @include media-max(lg) {
+        flex-direction: column;
+    }
+
+    @include media-min(lg) {
+        padding-right: 40px;
+        padding-left: 60px;
+    }
+
+    &__headline {
+        @include media-max(lg) {
+            margin-bottom: spacing(3.5);
+        }
+
+        @include media-min(lg) {
+            flex-grow: 1;
+            max-width: 540px;
+        }
+    }
+
+    &__content {
+        flex-grow: 1;
+        @include media-max(lg) {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @include media-min(lg) {
+            max-width: 615px;
+        }
+    }
+
+    > * + * {
+        @include media-min(lg) {
+            margin-right: 40px;
+        }
+    }
+}

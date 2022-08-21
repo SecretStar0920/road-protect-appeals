@@ -1,0 +1,86 @@
+version: '3.6'
+services:
+    backend:
+        build:
+            context: $PWD/../../../backend
+            dockerfile: $PWD/backend/Dockerfile
+        volumes:
+            - ../../../backend/src:/app/src
+            - ../../../backend/nodemon.json:/app/nodemon.json
+        ports:
+            - 3001
+            - 9229:9229
+        env_file:
+            - ./backend/.env
+        networks:
+            - rp-appeals
+        depends_on:
+            - database
+            - redis
+        environment:
+            - FORCE_COLOR=1
+
+    frontend:
+        build:
+            context: $PWD/../../../frontend
+            dockerfile: $PWD/frontend/Dockerfile
+        ports:
+            - 4200
+        networks:
+            - rp-appeals
+        depends_on:
+            - backend
+        volumes:
+            - ../../../frontend/src:/app/src
+
+    redis:
+        image: redis
+        ports:
+            - 6379
+        networks:
+            - rp-appeals
+        command: ['redis-server', '--appendonly', 'yes']
+        volumes:
+            - 'redis-data:/data'
+
+    database:
+        image: postgres:11.1
+        ports:
+            - '6001:5432'
+        env_file:
+            - ./database/.env
+        volumes:
+            - 'db-data:/var/lib/postgresql/data'
+        networks:
+            - rp-appeals
+
+    nginx:
+        image: nginx
+        volumes:
+            - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+        ports:
+            - 3000:80
+        depends_on:
+            - backend
+            - frontend
+            - metabase
+        networks:
+            - rp-appeals
+
+    metabase:
+        image: metabase/metabase
+        ports:
+            - 3000
+        volumes:
+            - ./.storage:/metabase-data
+        environment:
+            MB_DB_FILE: /metabase-data/metabase.db
+        networks:
+            - rp-appeals
+
+volumes:
+    redis-data:
+    db-data:
+
+networks:
+    rp-appeals:

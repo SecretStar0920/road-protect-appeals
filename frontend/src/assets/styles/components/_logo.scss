@@ -1,0 +1,11 @@
+$logo: (
+    min-lg: (
+        width: 134px,
+    ),
+);
+
+.logo {
+    @include media-max(lg) {
+        width: map-deep-get($logo, min-lg, width);
+    }
+}

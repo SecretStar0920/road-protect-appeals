@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: frontend
+    namespace: staging
+spec:
+    strategy:
+        type: RollingUpdate
+        rollingUpdate:
+            maxSurge: 1
+            maxUnavailable: 0
+    replicas: 1
+    selector:
+        matchLabels:
+            app: rp-appeals
+            type: frontend
+            env: staging
+    template:
+        metadata:
+            labels:
+                app: rp-appeals
+                type: frontend
+                env: staging
+        spec:
+            containers:
+                - name: frontend
+                  image: eu.gcr.io/appeals-265314/frontend:latest
+                  imagePullPolicy: Always
+                  ports:
+                      - containerPort: 3000
+                        name: entry
+                        protocol: TCP
+                  livenessProbe:
+                      httpGet:
+                          path: /health
+                          port: 3000
+                      initialDelaySeconds: 20
+                      periodSeconds: 10
+                  readinessProbe:
+                      httpGet:
+                          path: /health
+                          port: 3000
+                      initialDelaySeconds: 20
+                      periodSeconds: 10
+                  env:
+                      - name: PORT
+                        value: '3000'
+                  envFrom:
+                      - secretRef:
+                            name: frontend
+

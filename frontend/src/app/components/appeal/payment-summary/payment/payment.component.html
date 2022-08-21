@@ -1,0 +1,40 @@
+<app-appeal-flow-wrapper>
+    <div class="mdl-page-layout">
+        <div class="mdl-page-layout__headline">
+            <div class="mdl-wizard-head">
+                <div class="mdl-page-headlines">
+                    <h1 class="title primary">מילוי פרטי תשלום</h1>
+                    <button
+                        *ngIf="!(payByCreditCard || payByCoupon) && !hasPaid()"
+                        class="mdl-page-headlines__nav"
+                        type="button"
+                        [routerLink]="['/appeal', 'summary']"
+                    >
+                        <svg-icon src="{{ imgPathService?.chevronRightUiIcon }}" class="icon"></svg-icon>
+                    </button>
+                    <button
+                        *ngIf="(payByCreditCard || payByCoupon) && !hasPaid()"
+                        class="mdl-page-headlines__nav"
+                        type="button"
+                        (click)="resetPaymentOptions()"
+                    >
+                        <svg-icon src="{{ imgPathService?.chevronRightUiIcon }}" class="icon"></svg-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="mdl-page-layout__content">
+            <div class="payment-options" *ngIf="!(payByCreditCard || payByCoupon)">
+                <rp-button (click)="makeCreditCardPayment()">שלם באשראי</rp-button>
+                <h2 class="flex subtitle">
+                    <span class="lined left"></span>
+                    או
+                    <span class="lined right"></span>
+                </h2>
+                <rp-button (click)="makeCouponPayment()">שלם עם קופון</rp-button>
+            </div>
+            <app-pay-by-credit-card *ngIf="payByCreditCard" [iframeUrl]="paymentUrl"></app-pay-by-credit-card>
+            <app-pay-by-coupon *ngIf="payByCoupon"></app-pay-by-coupon>
+        </div>
+    </div>
+</app-appeal-flow-wrapper>

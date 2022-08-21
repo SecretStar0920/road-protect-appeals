@@ -1,0 +1,63 @@
+$breadcrumbs: (
+    background-color: rgba(color(system-alt), 0.2),
+    padding-y: spacing(2),
+    padding-x: spacing(1),
+    height: 40px,
+    max-lg: (
+        margin-x-offset: - spacing(3),
+    ),
+    min-lg: (
+        margin-bottom: spacing(2),
+    ),
+    item: (
+        icon: (
+            margin-x: spacing(1),
+            background-image: get-image(icon, ui, chevron-left),
+            size: 12px,
+        ),
+    ),
+);
+
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    background-color: map-deep-get($breadcrumbs, background-color);
+    padding: map-deep-get($breadcrumbs, padding-y) map-deep-get($breadcrumbs, padding-x);
+    height: map-deep-get($breadcrumbs, height);
+
+    @include media-max(lg) {
+        //todo: need to be a cascaded var..
+        margin-right: map-deep-get($breadcrumbs, max-lg, margin-x-offset);
+        margin-left: map-deep-get($breadcrumbs, max-lg, margin-x-offset);
+    }
+
+    @include media-min(lg) {
+        margin-bottom: map-deep-get($breadcrumbs, min-lg, margin-bottom);
+    }
+
+    &__item {
+        cursor: pointer;
+        user-select: none;
+
+        &::after {
+            display: inline-block;
+            margin-right: map-deep-get($breadcrumbs, item, icon, margin-x);
+            margin-left: map-deep-get($breadcrumbs, item, icon, margin-x);
+            background-image: map-deep-get($breadcrumbs, item, icon, background-image);
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: map-deep-get($breadcrumbs, item, icon, size);
+            height: map-deep-get($breadcrumbs, item, icon, size);
+            vertical-align: middle;
+            content: '';
+        }
+
+        &:last-child {
+            cursor: default;
+
+            &::after {
+                content: none;
+            }
+        }
+    }
+}

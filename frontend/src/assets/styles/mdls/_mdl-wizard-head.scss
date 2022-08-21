@@ -1,0 +1,14 @@
+@mixin mdl-wizard-head() {
+    &::before {
+        @include media-max(lg) {
+            display: block;
+            content: '';
+            background-color: rgba($color-stk-curious-blue, 0.1);
+            background-image: url('#{$path-image + $image-head_bg-secondary}');
+            background-position: bottom center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            height: 100px;
+        }
+    }
+}

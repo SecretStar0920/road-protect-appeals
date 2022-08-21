@@ -1,0 +1,30 @@
+@mixin tooltip-arrow($color-outline: color(primary), $color-inline: color(light)) {
+    ::after,
+    ::before {
+        position: absolute;
+        bottom: 100%;
+        left: calc(100% - 60px);
+        border: solid transparent;
+        width: 0;
+        height: 0;
+        content: ' ';
+        pointer-events: none;
+    }
+
+    ::after {
+        top: -17px;
+        margin-left: -6px;
+        border-width: 6px;
+        border-bottom-width: 12px;
+        border-color: transparent;
+        border-bottom-color: $color-inline;
+    }
+
+    ::before {
+        margin-left: -7px;
+        border-width: 7px;
+        border-bottom-width: 13px;
+        border-color: transparent;
+        border-bottom-color: $color-outline;
+    }
+}

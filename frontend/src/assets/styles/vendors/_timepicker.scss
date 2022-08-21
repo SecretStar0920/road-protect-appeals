@@ -1,0 +1,55 @@
+.timepicker {
+    direction: ltr;
+
+    .timepicker-overlay & {
+        position: relative !important;
+
+        @include media-min(lg) {
+            width: 320px !important;
+        }
+    }
+
+    &__close {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        color: color(light);
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    & &__actions {
+        justify-content: center !important;
+    }
+}
+
+$custom-timer: (
+    icon: (
+        size: 32px,
+        background-image: get-image(icon, ui, time),
+        position: spacing(2),
+    ),
+);
+
+.custom-timer {
+    .form-field .mat-form-field-flex & {
+        position: relative;
+
+        &::before {
+            display: inline-block;
+            position: absolute;
+            top: inherit;
+            bottom: inherit;
+            left: map-deep-get($custom-timer, icon, position);
+            z-index: $z-index-base;
+            background-image: map-deep-get($custom-timer, icon, background-image);
+            background-repeat: no-repeat;
+            background-size: contain;
+            cursor: pointer;
+            width: map-deep-get($custom-timer, icon, size);
+            height: map-deep-get($custom-timer, icon, size);
+            vertical-align: middle;
+            content: '';
+        }
+    }
+}

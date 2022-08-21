@@ -1,0 +1,23 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+    name: production-certificate
+    namespace: production
+spec:
+    secretName: ingress-tls-certificate
+    issuerRef:
+        name: rp-appeals-production-issuer
+        kind: ClusterIssuer
+    commonName: appeal.roadprotect.co.il
+    dnsNames:
+        - appeal.roadprotect.co.il
+        - www.appeal.roadprotect.co.il
+        - metabase.appeal.roadprotect.co.il
+    acme:
+        config:
+            - http01:
+                  ingressClass: nginx
+              domains:
+                  - appeal.roadprotect.co.il
+                  - www.appeal.roadprotect.co.il
+                  - metabase.appeal.roadprotect.co.il

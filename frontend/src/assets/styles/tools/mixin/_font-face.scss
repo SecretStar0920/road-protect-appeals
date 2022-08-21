@@ -1,0 +1,15 @@
+// mixin: Font-Face
+// - this mixin simplifies writing a font face declaration.
+// parameters:
+// -- name: name used in the font-family declaration
+// -- file: actual file being called
+// -- weight: font weight properties associated to  actual file being calld
+@mixin fontFace($name, $file, $weight: normal, $style: normal) {
+    @font-face {
+        font-family: '#{$name}';
+        font-weight: $weight;
+        font-style: $style;
+        src: local('#{$name}'), local('#{$file}'), url('#{$path-fonts}/#{$file}.woff2') format('woff2'),
+            url('#{$path-fonts}/#{$file}.woff') format('woff'), url('#{$path-fonts}/#{$file}.ttf') format('truetype');
+    }
+}

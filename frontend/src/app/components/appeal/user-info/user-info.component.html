@@ -1,0 +1,203 @@
+<app-appeal-flow-wrapper>
+    <div class="mdl-page-layout">
+        <div class="mdl-page-layout__headline">
+            <div class="mdl-page-headlines">
+                <h1 class="title primary">פרטים אחרונים וסיימנו</h1>
+                <h2 class="subtitle">כל השדות הינן שדות חובה</h2>
+            </div>
+        </div>
+        <div class="mdl-page-layout__content">
+            <form [formGroup]="formGroup" class="form-container column-grow">
+                <div class="form-body">
+                    <div class="form-row form-row--half-min-lg">
+                        <div class="form-field">
+                            <label class="form-label">
+                                <div class="form-label__text">שם פרטי</div>
+                                <mat-form-field appearance="outline">
+                                    <input type="text" matInput formControlName="firstName" maxlength="20" />
+                                    <mat-error>יש להקליד שם פרטי בעברית</mat-error>
+                                </mat-form-field>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-row form-row--half-min-lg">
+                        <div class="form-field">
+                            <label class="form-label">
+                                <div class="form-label__text">שם משפחה</div>
+                                <mat-form-field appearance="outline">
+                                    <input type="text" matInput formControlName="lastName" maxlength="20" />
+                                    <mat-error>יש להקליד שם משפחה בעברית</mat-error>
+                                </mat-form-field>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-row form-row--reverse form-row--half-min-lg">
+                        <div class="form-field form-field--prefix form-field--no-label">
+                            <label class="form-label">
+                                <mat-form-field appearance="outline">
+                                    <mat-select class="custom-select" matNativeControl formControlName="phonePrefix">
+                                        <mat-option *ngFor="let item of phonePrefixArray" value="{{ item }}">
+                                            {{ item }}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </label>
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label">
+                                <div class="form-label__text">מספר נייד</div>
+                                <mat-form-field appearance="outline">
+                                    <input
+                                        maxlength="7"
+                                        oninput="this.value = enableOnlyNumbers(this.value)"
+                                        type="tel"
+                                        matInput
+                                        formControlName="phone"
+                                    />
+                                    <mat-error>יש להקליד מספר נייד</mat-error>
+                                </mat-form-field>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-row form-row--reverse form-row--half-min-lg">
+                        <div class="form-field form-field--prefix form-field--no-label">
+                            <label class="form-label">
+                                <mat-form-field appearance="outline">
+                                    <mat-select
+                                        class="custom-select"
+                                        matNativeControl
+                                        formControlName="additionalPhonePrefix"
+                                    >
+                                        <mat-option *ngFor="let item of phonePrefixArray" value="{{ item }}">
+                                            {{ item }}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </label>
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label">
+                                <div class="form-label__text">טלפון נוסף</div>
+                                <mat-form-field appearance="outline">
+                                    <input
+                                        maxlength="7"
+                                        oninput="this.value = enableOnlyNumbers(this.value)"
+                                        type="tel"
+                                        matInput
+                                        formControlName="additionalPhone"
+                                    />
+                                    <mat-error>יש להקליד מספר נייד</mat-error>
+                                </mat-form-field>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-row form-row--half-min-lg">
+                        <div class="form-field">
+                            <label class="form-label">
+                                <div class="form-label__text">מספר תעודת הזהות</div>
+                                <mat-form-field appearance="outline">
+                                    <input
+                                        maxlength="9"
+                                        oninput="this.value = enableOnlyNumbers(this.value)"
+                                        type="tel"
+                                        matInput
+                                        formControlName="israelIdNumber"
+                                    />
+                                    <mat-hint *ngIf="ticketService.userInfo.get('israelIdNumber').invalid">
+                                        9 ספרות כולל ספרת ביקורת
+                                    </mat-hint>
+                                    <mat-error>מספר ת"ז לא תקין</mat-error>
+                                </mat-form-field>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-row form-row--half-min-lg">
+                        <div class="form-field">
+                            <label class="form-label">
+                                <div class="form-label__text">אימייל</div>
+                                <mat-form-field appearance="outline">
+                                    <input type="text" matInput formControlName="email" />
+                                    <mat-error>אימייל לא תקין</mat-error>
+                                </mat-form-field>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-row form-row--wrapp-max-lg">
+                        <div class="form-field form-field--wrapp-max-lg form-field--calc-half-min-lg">
+                            <label class="form-label">
+                                <div class="form-label__text">עיר מגורים</div>
+                                <mat-form-field class="city" appearance="outline">
+                                    <input
+                                        (keydown)="deleteStreet()"
+                                        type="text"
+                                        aria-label="Assignee"
+                                        matInput
+                                        formControlName="city"
+                                        [matAutocomplete]="autoCity"
+                                    />
+                                    <mat-autocomplete #autoCity="matAutocomplete" [displayWith]="displayCityFn">
+                                        <mat-option
+                                            *ngFor="let city of filteredCities | async"
+                                            [value]="city"
+                                            (blur)="getStreets(city)"
+                                        >
+                                            {{ city }}
+                                        </mat-option>
+                                    </mat-autocomplete>
+                                </mat-form-field>
+                            </label>
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label">
+                                <div class="form-label__text">שם הרחוב</div>
+                                <mat-form-field class="street" appearance="outline">
+                                    <input
+                                        #street
+                                        type="text"
+                                        aria-label="Assignee"
+                                        matInput
+                                        formControlName="address"
+                                        [matAutocomplete]="autoStreet"
+                                    />
+                                    <mat-autocomplete #autoStreet="matAutocomplete" [displayWith]="displayStreetFn">
+                                        <mat-option *ngFor="let street of filteredStreets | async" [value]="street">
+                                            {{ street }}
+                                        </mat-option>
+                                    </mat-autocomplete>
+                                    <mat-hint *ngIf="ticketService.userInfo.get('city').invalid">יש לבחור עיר</mat-hint>
+                                </mat-form-field>
+                            </label>
+                        </div>
+                        <div class="form-field form-field--prefix">
+                            <label class="form-label">
+                                <div class="form-label__text">מספר בית</div>
+                                <mat-form-field appearance="outline">
+                                    <input type="text" matInput formControlName="houseNumber" />
+                                </mat-form-field>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="mdl-page-footer">
+                <button
+                    type="submit"
+                    mat-button
+                    class="btn-mat-custom"
+                    [disabled]="formGroup.invalid"
+                    (click)="onSubmit()"
+                    *ngIf="ticketService.routeToEnd()"
+                >
+                    חזור לסיכום
+                </button>
+                <rp-button
+                    type="submit"
+                    [onClick]="onSubmit.bind(this)"
+                    [disabled]="formGroup.invalid"
+                    *ngIf="!ticketService.routeToEnd()"
+                    >המשך לשלב הבא
+                </rp-button>
+            </div>
+        </div>
+    </div>
+</app-appeal-flow-wrapper>

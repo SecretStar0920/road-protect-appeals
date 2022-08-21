@@ -1,0 +1,37 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: rp-appeals-ingress
+    namespace: staging
+    annotations:
+        kubernetes.io/ingress.class: nginx
+        kubernetes.io/tls-acme: 'true'
+        cert-manager.k8s.io/cluster-issuer: rp-appeals-production-issuer
+        cert-manager.k8s.io/acme-challenge-type: http01
+        nginx.org/client-max-body-size: '10m'
+        nginx.ingress.kubernetes.io/proxy-body-size: '10m'
+spec:
+    rules:
+        - host: staging.appeal.roadprotect.co.il
+          http:
+              paths:
+                  - path: /
+                    backend:
+                        serviceName: frontend
+                        servicePort: entry
+                  - path: /api
+                    backend:
+                        serviceName: backend
+                        servicePort: entry
+        - host: metabase.staging.appeal.roadprotect.co.il
+          http:
+              paths:
+                  - path: /
+                    backend:
+                        serviceName: metabase
+                        servicePort: entry
+    tls:
+        - secretName: ingress-tls-certificate
+          hosts:
+              - staging.appeal.roadprotect.co.il
+              - metabase.staging.appeal.roadprotect.co.il

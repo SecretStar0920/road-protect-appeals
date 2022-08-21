@@ -1,0 +1,13 @@
+@mixin spacing-util($values: $spacing-values, $keys: $spacing-keys) {
+    @for $i from 1 through length($values) {
+        @each $key in $keys {
+            .m-#{str-slice($key, 0, 1)}-#{$i} {
+                margin-#{$key}: nth($values, $i) !important;
+            }
+
+            .p-#{str-slice($key, 0, 1)}-#{$i} {
+                padding-#{$key}: nth($values, $i) !important;
+            }
+        }
+    }
+}

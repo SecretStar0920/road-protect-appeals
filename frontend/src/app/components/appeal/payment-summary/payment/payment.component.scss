@@ -1,0 +1,23 @@
+@import '../../../../../assets/styles/module-dependencies';
+
+.mdl-page-layout {
+    @include mdl-master-detail();
+    .mdl-page-headlines {
+        @include mdl-headlines();
+    }
+
+    .mdl-page-layout__content {
+        .payment-options {
+            padding: 40px 0;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-between;
+            align-items: center;
+            height: 300px;
+
+            .subtitle.flex {
+                width: 100%;
+            }
+        }
+    }
+}

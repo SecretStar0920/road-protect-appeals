@@ -1,0 +1,18 @@
+.icon {
+    > svg {
+        display: block;
+        margin: auto;
+        width: 1em;
+        height: 1em;
+    }
+
+    &--user {
+        .avatar--user & {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+        }
+    }
+}

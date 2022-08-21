@@ -1,0 +1,124 @@
+<app-appeal-flow-wrapper>
+    <div class="mdl-page-layout">
+        <div class="mdl-page-layout__headline">
+            <div class="mdl-page-headlines">
+                <h1 class="title primary">לפני שאנחנו שולחים</h1>
+                <h2 class="subtitle">האם כל הפרטים נכונים?</h2>
+            </div>
+        </div>
+        <div class="mdl-page-layout__content">
+            <div class="form-body">
+                <section class="data-sum">
+                    <div class="data-sum__row data-sum__row--title">
+                        <button class="data-sum__edit" [routerLink]="['/appeal', 'user-info']">
+                            <svg-icon src="{{ imgPathService?.editUiIcon }}" class="icon"></svg-icon>
+                        </button>
+                        <h3 class="data-sum__title subtitle">פרטים אישיים</h3>
+                    </div>
+                    <form [formGroup]="userInfo">
+                        <label class="data-sum__row data-sum__row--data" for="">
+                            <span class="data-sum__key">שם מלא</span>
+                            <span class="data-sum__value"
+                                >{{ userInfo.controls['firstName'].value }}
+                                {{ userInfo.controls['lastName'].value }}</span
+                            >
+                        </label>
+                        <label class="data-sum__row data-sum__row--data" for="">
+                            <span class="data-sum__key">מספר נייד</span>
+                            <span class="data-sum__value"
+                                >{{ userInfo.controls['phonePrefix'].value
+                                }}{{ userInfo.controls['phone'].value }}</span
+                            >
+                        </label>
+                        <label class="data-sum__row data-sum__row--data" for="">
+                            <span class="data-sum__key">תעודת זהות</span>
+                            <span class="data-sum__value"> {{ userInfo.controls['israelIdNumber'].value }}</span>
+                        </label>
+                        <label class="data-sum__row data-sum__row--data" for="">
+                            <span class="data-sum__key">אימייל</span>
+                            <span class="data-sum__value"> {{ userInfo.controls['email'].value }}</span>
+                        </label>
+                        <label class="data-sum__row data-sum__row--data" for="">
+                            <span class="data-sum__key">כתובת</span>
+                            <span class="data-sum__value"
+                                >{{ userInfo.controls['address'].value }}
+                                {{ userInfo.controls['houseNumber'].value }}</span
+                            >
+                        </label>
+                    </form>
+                </section>
+                <section class="data-sum">
+                    <div class="data-sum__row data-sum__row--title">
+                        <button class="data-sum__edit" [routerLink]="['/appeal', 'fine']">
+                            <svg-icon src="{{ imgPathService?.editUiIcon }}" class="icon"></svg-icon>
+                        </button>
+                        <h3 class="data-sum__title subtitle">פרטי הדוח</h3>
+                    </div>
+                    <form [formGroup]="fine">
+                        <label class="data-sum__row data-sum__row--data" for="">
+                            <span class="data-sum__key">מספר הדוח</span>
+                            <span class="data-sum__value"> {{ fine.controls['citationNo'].value }}</span>
+                        </label>
+                        <label class="data-sum__row data-sum__row--data" for="">
+                            <span class="data-sum__key">עיר קבלת הדוח</span>
+                            <span class="data-sum__value"> {{ fine.controls['violationCity'].value }}</span>
+                        </label>
+                        <label class="data-sum__row data-sum__row--data" for="">
+                            <span class="data-sum__key">כתובת</span>
+                            <span class="data-sum__value">
+                                {{ fine.controls['violationAddress'].value }} {{ fine.controls['violationHouseNumber'].value }}</span
+                            >
+                        </label>
+                        <label class="data-sum__row data-sum__row--data" for="">
+                            <span class="data-sum__key">מספר רכב</span>
+                            <span class="data-sum__value">{{ fine.controls['licensePlate'].value }}</span>
+                        </label>
+                        <label class="data-sum__row data-sum__row--data" for="">
+                            <span class="data-sum__key">סוג הרכב</span>
+                            <span class="data-sum__value"> {{ fine.controls['vehicleMake'].value }}</span>
+                        </label>
+                        <label class="data-sum__row data-sum__row--data" for="">
+                            <span class="data-sum__key">מודל הרכב</span>
+                            <span class="data-sum__value"> {{ fine.controls['modelType'].value }}</span>
+                        </label>
+                        <label class="data-sum__row data-sum__row--data" for="">
+                            <span class="data-sum__key">סכום לתשלום</span>
+                            <span class="data-sum__value"> {{ fine.controls['amount'].value }}</span>
+                        </label>
+                        <label class="data-sum__row data-sum__row--data" for="">
+                            <span class="data-sum__key">תאריך קבלת הדוח</span>
+                            <span class="data-sum__value">{{
+                                fine.controls['violationDate'].value | date: 'shortDate'
+                            }}</span>
+                        </label>
+                        <label class="data-sum__row data-sum__row--data" for="">
+                            <span class="data-sum__key">שעת קבלת הדוח</span>
+                            <span class="data-sum__value">{{ fine.controls['violationTime'].value }}</span>
+                        </label>
+                    </form>
+                </section>
+                <section>
+                    <div class="data-sum__row data-sum__row--title">
+                        <button class="data-sum__edit" [routerLink]="['/appeal', 'details']">
+                            <svg-icon src="{{ imgPathService?.editUiIcon }}" class="icon"></svg-icon>
+                        </button>
+                        <h3 class="data-sum__title subtitle">פרטי הערעור</h3>
+                    </div>
+                    <label class="data-sum__row data-sum__row--data" for="">
+                        <span class="data-sum__key">העבירה בדוח</span>
+                        <span class="data-sum__value">{{ violation }}</span>
+                    </label>
+                    <label class="data-sum__row data-sum__row--data" for="">
+                        <span class="data-sum__key">סיבות הערעור</span>
+                        <ul class="data-sum__value">
+                            <li *ngFor="let reason of reasons">{{ reason }}</li>
+                        </ul>
+                    </label>
+                </section>
+            </div>
+            <div class="mdl-page-footer">
+                <rp-button type="submit" [onClick]="onSubmit.bind(this)">המשך לשלב הבא</rp-button>
+            </div>
+        </div>
+    </div>
+</app-appeal-flow-wrapper>

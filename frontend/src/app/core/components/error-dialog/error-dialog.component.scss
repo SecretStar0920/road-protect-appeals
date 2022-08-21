@@ -1,0 +1,9 @@
+@import '../../../../assets/styles/module-dependencies';
+
+.dialog__footer {
+    .btn-mat-custom.danger {
+        background-color: $color-stk-torch-red;
+        border-color: $color-stk-torch-red;
+        color: $color-stk-white;
+    }
+}

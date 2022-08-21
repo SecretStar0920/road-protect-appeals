@@ -1,0 +1,22 @@
+.mat-button {
+    &.btn-mat-custom {
+        @include btn;
+        @include btn--primary;
+        @include btn--lg;
+        @include btn--round;
+    }
+
+    &.btn-mat-custom-sm {
+        @include btn;
+        @include btn--primary;
+        @include btn--sm;
+        @include btn--round;
+    }
+
+    &.btn-mat-custom-ghost {
+        @include btn;
+        @include btn--ghost;
+        @include btn--lg;
+        @include btn--round;
+    }
+}

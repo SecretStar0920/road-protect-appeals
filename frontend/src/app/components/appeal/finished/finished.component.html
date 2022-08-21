@@ -1,0 +1,26 @@
+<div class="intro">
+    <div class="boarding">
+        <div class="boarding__img">
+            <img src="./assets/images/finish-process.svg" alt="alt" />
+        </div>
+        <h1 class="boarding__title">סיימת את התהליך!</h1>
+        <div class="box box--highlight">
+            הגשת את הערעור<br />
+            <span class="strong">לעיריית {{ activeMunicipality?.City }}</span
+            ><br />
+            <span *ngIf="foundPhone(activeMunicipality?.City)">
+                יש לוודא שהערעור התקבל בטלפון <br />
+                <span class="strong">{{ getPhone(activeMunicipality?.City) }}</span>
+            </span>
+        </div>
+        <div class="boarding__text m-b-5">
+            יחכה לך מייל עם כל הפרטים,<br />
+            בהצלחה!
+        </div>
+    </div>
+</div>
+<div class="mdl-page-footer">
+    <rp-button [onClick]="reset.bind(this)">
+        יש לי דוח נוסף
+    </rp-button>
+</div>

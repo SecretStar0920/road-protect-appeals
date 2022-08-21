@@ -1,0 +1,63 @@
+// DIRECTION, a mixin to create 'logical-properties' machanizm for RTL/LTR switch.
+// - RTL is assumed as default.
+// - Base mixin is 'direction'
+// -- This mixin output two variants for one declatarion.
+// --- 'rtl' and 'ltr', 'ltr' version is scoped by [dir=""].
+// --- We use the $dir argument and flip it between language directions.
+// -- Arguments are:
+// --- $param: dynamic property name.
+// --- $dir: [start,end] --> this is what differs between outpus
+// --- $value: output value.
+// - Semantic versions:
+// -- for easier read/write abstraction we use property related mixins that use the base mixin.
+// - How to use:
+// -- direction(margin,start,20px) --> default: margin-right:20px, [dir="ltr"]: margin-left:20px
+// ---  margin-start(20px) will produce the same output.
+
+// Base Mixin
+// - property is dynamic
+@mixin direction($param, $dir, $value) {
+    @if $dir == 'start' {
+        [dir='rtl'] & {
+            #{$param}-right: $value;
+        }
+        [dir='ltr'] & {
+            #{$param}-left: $value;
+        }
+    } @else if $dir == 'end' {
+        [dir='rtl'] & {
+            #{$param}-left: $value;
+        }
+        [dir='ltr'] & {
+            #{$param}-right: $value;
+        }
+    }
+}
+
+// SEMANTIC VARSIONS:
+// - property is mapped, calling base 'direction' mixin.
+
+// - Margin
+@mixin margin-start($value) {
+    @include direction(margin, start, $value);
+}
+@mixin margin-end($value) {
+    @include direction(margin, end, $value);
+}
+
+// - Padding
+@mixin padding-start($value) {
+    @include direction(padding, start, $value);
+}
+@mixin padding-end($value) {
+    @include direction(padding, end, $value);
+}
+
+// - Border
+@mixin border-start($value) {
+    @include direction(border, start, $value);
+}
+
+@mixin border-end($value) {
+    @include direction(border, end, $value);
+}

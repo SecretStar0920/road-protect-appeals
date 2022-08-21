@@ -1,0 +1,67 @@
+$dialog: (
+    min-lg: (
+        width: 600px,
+    ),
+    close: (
+        position: - spacing(1),
+        font-size: 18px,
+    ),
+    title: (
+        margin-top: spacing(2),
+        color: color(primary),
+        font-weight: $weight-bold,
+        max-lg: (
+            font-size: type(title),
+        ),
+        min-lg: (
+            font-size: type(headline),
+        ),
+    ),
+    text: (
+        font-size: type(subtitle),
+    ),
+    body: (
+        margin-y: spacing(3),
+    ),
+);
+
+.dialog {
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    &__close {
+        position: absolute;
+        top: map-deep-get($dialog, close, position);
+        left: map-deep-get($dialog, close, position);
+        color: inherit;
+        font-size: map-deep-get($dialog, close, font-size);
+    }
+
+    &__title {
+        margin-top: map-deep-get($dialog, title, margin-top);
+        color: map-deep-get($dialog, title, color);
+        font-weight: map-deep-get($dialog, title, font-weight);
+
+        @include media-max(lg) {
+            font-size: map-deep-get($dialog, title, max-lg, font-size);
+        }
+
+        @include media-min(lg) {
+            font-size: map-deep-get($dialog, title, min-lg, font-size);
+        }
+    }
+
+    &__text {
+        font-size: map-deep-get($dialog, text, font-size);
+    }
+
+    &__body {
+        flex-grow: 1;
+        margin-top: map-deep-get($dialog, body, margin-y);
+        margin-bottom: map-deep-get($dialog, body, margin-y);
+        width: 100%;
+    }
+}

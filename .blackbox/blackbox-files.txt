@@ -1,0 +1,9 @@
+devops/docker-compose/dev/backend/.env
+devops/docker-compose/dev/database/.env
+devops/docker-compose/dev/metabase_readme.md
+devops/kubernetes/production/backend/.env
+devops/kubernetes/production/database/.env
+devops/kubernetes/production/frontend/.env
+devops/kubernetes/staging/backend/.env
+devops/kubernetes/staging/database/.env
+devops/kubernetes/staging/frontend/.env

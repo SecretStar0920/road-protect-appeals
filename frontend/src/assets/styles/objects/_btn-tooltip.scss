@@ -1,0 +1,19 @@
+$btn-tooltip: (
+    border-radius: $radius-round,
+    background-color: color(primary),
+    size: 20px,
+    color: color(light),
+    font-size: type(caption),
+);
+
+.btn-tooltip {
+    display: inline-block;
+    border-radius: map-deep-get($btn-tooltip, border-radius);
+    background-color: map-deep-get($btn-tooltip, background-color);
+    width: map-deep-get($btn-tooltip, size);
+    height: map-deep-get($btn-tooltip, size);
+    vertical-align: middle;
+    text-align: center;
+    color: map-deep-get($btn-tooltip, color);
+    font-size: map-deep-get($btn-tooltip, font-size);
+}

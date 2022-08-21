@@ -1,0 +1,60 @@
+@Library('jenkins-shared-lib')_
+env.SLACK_TOKEN = 'bsQQ1TYnge9gh1f9qqv4DeHU'
+env.SLACK_CH = 'road-protect'
+env.CONTAINER_NAME = "road-protect-client"
+env.CONFIG = """
+{
+   "integration": {
+      "DOCKER_REPO": "registry.codeoasis.com:8082",
+      "K8S_APPLY_FILES_GLOB": "k8s/${ENV}.yaml",
+      "KUBE_CONFIG_ID": "kubeconfig_codeoasis",
+   },
+   "qa": {
+      "DOCKER_REPO": "registry.codeoasis.com:8082",
+      "K8S_APPLY_FILES_GLOB": "k8s/${ENV}.yaml",
+      "KUBE_CONFIG_ID": "kubeconfig_codeoasis",
+   },
+   "production": {
+          "DOCKER_REPO": "registry.codeoasis.com:8082",
+          "K8S_APPLY_FILES_GLOB": "k8s/prod.yaml",
+          "KUBE_CONFIG_ID": "k8s_gcloud_road_protect_prod",
+   },
+}
+"""
+pipeline {
+    agent any
+    options {
+        ansiColor('xterm')
+    }
+    stages {
+        stage('init') {
+            steps {
+                init()
+            }
+        }
+        stage('Git Clone') {
+            steps {
+                gitClone()
+            }
+        }
+        stage('Docker Image Tag & Push') {
+            steps {
+                buildContainer([ASPNETCORE_ENVIRONMENT: ENV, NODE_ENV: ENV, MS_PROJECT_NAME: params.MS_PROJECT_NAME])
+            }
+        }
+        stage('Deploying Image From Repo') {
+            steps {
+                deploy()
+            }
+        }
+   }
+   post {
+        success { slackSendHelper(true) }
+        failure { slackSendHelper(false) }
+        always { 
+            chuckNorris()
+            cleanWs()
+            // printEnv()
+        }
+    }
+}

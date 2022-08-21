@@ -1,0 +1,21 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+    name: staging-certificate
+    namespace: staging
+spec:
+    secretName: ingress-tls-certificate
+    issuerRef:
+        name: rp-appeals-production-issuer
+        kind: ClusterIssuer
+    commonName: staging.appeal.roadprotect.co.il
+    dnsNames:
+        - staging.appeal.roadprotect.co.il
+        - metabase.staging.appeal.roadprotect.co.il
+    acme:
+        config:
+            - http01:
+                  ingressClass: nginx
+              domains:
+                  - staging.appeal.roadprotect.co.il
+                  - metabase.staging.appeal.roadprotect.co.il

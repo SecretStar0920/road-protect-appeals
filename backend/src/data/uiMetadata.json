@@ -1,0 +1,477 @@
+{
+    "topicId-01": {
+        "pageTitle": "בחר את אי הדיוק:",
+        "iconSrc": "reportProcessIcon",
+        "subTitle": "על מה ברצונך לערער?",
+        "btnTxt": "אי דיוק בדוח"
+    },
+    "reasonId-01-01": {
+        "pageTitle": "הדוח נכתב בכתב יד חלש או לא ברור",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "הדוח נכתב בכתב יד חלש או לא ברור"
+    },
+    "reasonId-01-02": {
+        "pageTitle": "האם על המדרכה היה סימון של אבני שפה אפורות?",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "החנייה הייתה עם אופנוע"
+    },
+    "reasonId-01-02-01": {
+        "pageTitle": "האם היה מעבר של לפחות 130 סמ על המדרכה?",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "כן"
+    },
+    "answerId-02-01-01": {
+        "pageTitle": "",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "כן"
+    },
+    "answerId-02-01-02": {
+        "pageTitle": "",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "לא"
+    },
+    "answerId-01-02-02": {
+        "pageTitle": "",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "לא"
+    },
+    "reasonId-01-03": {
+        "pageTitle": "החנייה על המדרכה הייתה עם 2 גלגלים בלבד (לא אופנוע)",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "החנייה על המדרכה הייתה עם 2 גלגלים בלבד (לא אופנוע)"
+    },
+    "reasonId-01-03-01": {
+        "pageTitle": "האם היה מעבר של לפחות 130 סמ על המדרכה?",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "כן"
+    },
+    "answerId-03-01-01": {
+        "pageTitle": "",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "כן"
+    },
+    "answerId-03-01-02": {
+        "pageTitle": "",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "לא"
+    },
+    "answerId-01-03-02": {
+        "pageTitle": "",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "לא"
+    },
+    "reasonId-01-04": {
+        "pageTitle": "הרכב שלי הוא בעל תו נכה",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "הרכב שלי הוא בעל תו נכה"
+    },
+    "reasonId-01-05": {
+        "pageTitle": "חנייה בכחול-לבן כאשר קצה הרכב נמצא באדום-לבן",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "חנייה בכחול-לבן כאשר קצה הרכב נמצא באדום-לבן"
+    },
+    "reasonId-01-06": {
+        "pageTitle": "חניתי בתחנת אוטובוס לאחר שעות הפעילות (בלילה)",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "חניתי בתחנת אוטובוס לאחר שעות הפעילות (בלילה)"
+    },
+    "reasonId-01-07": {
+        "pageTitle": "חניתי ליד אבני שפה אפורות",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "חניתי ליד אבני שפה אפורות"
+    },
+    "reasonId-01-08": {
+        "pageTitle": "חסרים פרטים בדוח",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "חסרים פרטים בדוח"
+    },
+    "reasonId-01-09": {
+        "pageTitle": "ספק סביר",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "ספק סביר"
+    },
+    "reasonId-01-10": {
+        "pageTitle": "על הדוח לא כתוב שרכבי צולם",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "על הדוח לא כתוב שרכבי צולם"
+    },
+    "reasonId-01-11": {
+        "pageTitle": "פרטים לא נכונים בדוח",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "פרטים לא נכונים בדוח"
+    },
+    "topicId-02": {
+        "pageTitle": "האם היו לך עברות קודמות?",
+        "iconSrc": "goodProcessIcon",
+        "subTitle": "האם היו לי עבירות תעבורה קודמות (או מעט עבירות)",
+        "btnTxt": "אין לי עבירות תעבורה קודמות (או מעט עבירות)"
+    },
+    "reasonId-02-01": {
+        "pageTitle": "אין לי עבירות תעבורה קודמות (או מעט עבירות)",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "אין לי עבירות תעבורה קודמות (או מעט עבירות)"
+    },
+    "topicId-03": {
+        "pageTitle": "הדוח מתייחס לחקיקה שלא רלוונטית",
+        "iconSrc": "wrongParkProcessIcon",
+        "subTitle": "",
+        "btnTxt": "הדוח הוא לפי חוק שימור מדרכות"
+    },
+    "reasonId-03-01": {
+        "pageTitle": "הדוח הוא לפי חוק שימור מדרכות",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "הדוח הוא לפי חוק שימור מדרכות"
+    },
+    "topicId-04": {
+        "pageTitle": "חנייה עבור הסעת אדם חולה",
+        "iconSrc": "medicalProcessIcon",
+        "subTitle": "",
+        "btnTxt": "הסעת אדם חולה לקבלת טיפול רפואי"
+    },
+    "reasonId-04-01": {
+        "pageTitle": "הסעת אדם חולה לקבלת טיפול רפואי",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "הסעת אדם חולה לקבלת טיפול רפואי"
+    },
+    "topicId-05": {
+        "pageTitle": "לא הפרעתי",
+        "iconSrc": "carRoadProcessIcon",
+        "subTitle": "",
+        "btnTxt": "לא הפרעתי"
+    },
+    "reasonId-05-01": {
+        "pageTitle": "היעדר הפרעה לתנועה",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "היעדר הפרעה לתנועה"
+    },
+    "reasonId-05-02": {
+        "pageTitle": "חנייה בכניסה לבית",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "חנייה בכניסה לבית"
+    },
+    "reasonId-05-03": {
+        "pageTitle": "חניתי על המדרכה בלילה בלי להפריע להולכי רגל",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "חניתי על המדרכה בלילה בלי להפריע להולכי רגל"
+    },
+    "reasonId-05-04": {
+        "pageTitle": "מתי חנית?",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "מתי חנית?",
+        "btnTxt": "לא הפרעתי לתנועת כלי רכב בכביש"
+    },
+    "answerId-05-04-01": {
+        "pageTitle": "",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "חניתי ביום"
+    },
+    "answerId-05-04-02": {
+        "pageTitle": "",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "חניתי בלילה"
+    },
+    "answerId-05-04-03": {
+        "pageTitle": "",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "לא יודע"
+    },
+    "topicId-06": {
+        "pageTitle": "לא שמתי לב",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "לא שמתי לב"
+    },
+    "reasonId-06-01": {
+        "pageTitle": "טעות בזיהוי חנייה נכים",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "טעות בזיהוי חנייה נכים"
+    },
+    "reasonId-06-02": {
+        "pageTitle": "טעות בזיהוי מקום חנייה אסור",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "טעות בזיהוי מקום חנייה אסור"
+    },
+    "reasonId-06-03": {
+        "pageTitle": "לא שמתי לב שמדובר במקום שאסור לחנות בו",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "לא שמתי לב שמדובר במקום שאסור לחנות בו"
+    },
+    "topicId-07": {
+        "pageTitle": "מצוקה כלכלית",
+        "iconSrc": "noPayProcessIcon",
+        "subTitle": "",
+        "btnTxt": "מצוקה כלכלית"
+    },
+    "reasonId-07-01": {
+        "pageTitle": "מצוקה כלכלית",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "מצוקה כלכלית"
+    },
+    "topicId-08": {
+        "pageTitle": "האם במקום בו חנית ישנה מצוקת חנייה?",
+        "iconSrc": "carStackProcessIcon",
+        "subTitle": "",
+        "btnTxt": "מצוקת חנייה"
+    },
+    "reasonId-08-01": {
+        "pageTitle": "האם את/ה תושב השכונה?",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "כן"
+    },
+    "answerId-08-01-01": {
+        "pageTitle": "",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "כן"
+    },
+    "answerId-08-01-02": {
+        "pageTitle": "",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "לא"
+    },
+    "answerId-08-02": {
+        "pageTitle": "",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "לא"
+    },
+    "topicId-09": {
+        "pageTitle": "מה הסיבה?",
+        "iconSrc": "reportProcessIcon",
+        "subTitle": "",
+        "btnTxt": "סיבה טכנית"
+    },
+    "reasonId-09-01": {
+        "pageTitle": "בקשה חוזרת",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "בקשה חוזרת"
+    },
+    "reasonId-09-02": {
+        "pageTitle": "דחיית ערעור ללא נימוק",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "דחיית ערעור ללא נימוק"
+    },
+    "reasonId-09-03": {
+        "pageTitle": "שהיתי ברכב בזמן קבלת הדוח",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "שהיתי ברכב בזמן קבלת הדוח"
+    },
+    "topicId-10": {
+        "pageTitle": "פרקתי וטענתי",
+        "iconSrc": "wrongParkProcessIcon",
+        "subTitle": "",
+        "btnTxt": "פרקתי וטענתי"
+    },
+    "reasonId-10-01": {
+        "pageTitle": "ביצעתי פריקה וטעינה",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "ביצעתי פריקה וטעינה"
+    },
+    "reasonId-10-02": {
+        "pageTitle": "מתי חנית?",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "פריקה וטעינה"
+    },
+    "answerId-10-02-01": {
+        "pageTitle": "",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "חניתי ביום"
+    },
+    "answerId-10-02-02": {
+        "pageTitle": "",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "חניתי בלילה"
+    },
+    "answerId-10-02-03": {
+        "pageTitle": "",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "לא יודע"
+    },
+    "topicId-11": {
+        "pageTitle": "רכב תקול",
+        "iconSrc": "carBrokenProcessIcon",
+        "subTitle": "",
+        "btnTxt": "חניתי שם בלית ברירה כיוון שהייתה לי תקלה ברכב"
+    },
+    "reasonId-11-01": {
+        "pageTitle": "חניתי שם בלית ברירה כיוון שהייתה לי תקלה ברכב",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "חניתי שם בלית ברירה כיוון שהייתה לי תקלה ברכב"
+    },
+    "topicId-12": {
+        "pageTitle": "שילוט/חוקי חניה  לא ברורים",
+        "iconSrc": "enviromentProcessIcon",
+        "subTitle": "",
+        "btnTxt": "שילוט/חוקי חניה  לא ברורים"
+    },
+    "reasonId-12-01": {
+        "pageTitle": "אנשים רבים חונים במקום ובאופן בו חניתי",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "אנשים רבים חונים במקום ובאופן בו חניתי"
+    },
+    "reasonId-12-02": {
+        "pageTitle": "במיקום בו חניתי התמרור שהוצב היה לא ברור / מוסתר",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "במיקום בו חניתי התמרור שהוצב היה לא ברור / מוסתר"
+    },
+    "reasonId-12-03": {
+        "pageTitle": "היכן שחניתי קיים נוהג של נהגי אופנוע להחנות על המדרכה",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "היכן שחניתי קיים נוהג של נהגי אופנוע להחנות על המדרכה"
+    },
+    "reasonId-12-04": {
+        "pageTitle": "היעדר תמרור נכים",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "היעדר תמרור נכים"
+    },
+    "reasonId-12-05": {
+        "pageTitle": "חניית נכים- היעדר שילוט מתאים",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "חניית נכים- היעדר שילוט מתאים"
+    },
+    "reasonId-12-06": {
+        "pageTitle": "תמרור לא ברור",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "תמרור לא ברור"
+    },
+    "topicId-13": {
+        "pageTitle": "שילמתי",
+        "iconSrc": "paidProcessIcon",
+        "subTitle": "",
+        "btnTxt": "חניתי באמצעות תשלום סלולארי"
+    },
+    "reasonId-13-01": {
+        "pageTitle": "חניתי באמצעות תשלום סלולארי",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "חניתי באמצעות תשלום סלולארי"
+    },
+    "topicId-14": {
+        "pageTitle": "תנאים סביבתיים",
+        "iconSrc": "enviromentProcessIcon",
+        "subTitle": "",
+        "btnTxt": "תנאים סביבתיים"
+    },
+    "reasonId-14-01": {
+        "pageTitle": "האפליקצייה הסלולארית לא עבדה",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "האפליקצייה הסלולארית לא עבדה"
+    },
+    "reasonId-14-02": {
+        "pageTitle": "המקום בו חניתי לא נראה כמו מדרכה סטנדרטית- למשל: המדרכה לא הייתה מוגבהת או מופרדת מהכביש",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "המקום בו חניתי לא נראה כמו מדרכה סטנדרטית- למשל: המדרכה לא הייתה מוגבהת או מופרדת מהכביש"
+    },
+    "answerId-01": {
+        "pageTitle": "",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "כן"
+    },
+    "answerId-03": {
+        "pageTitle": "",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "לא יודע"
+    },
+    "answerId-43yes": {
+        "pageTitle": "",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "כן"
+    },
+    "answerId-43no": {
+        "pageTitle": "",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "לא"
+    },
+    "answerId-04": {
+        "pageTitle": "",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "חניתי ביום"
+    },
+    "reasonId-23": {
+        "pageTitle": "אני תושב השכונה",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "אני תושב השכונה"
+    },
+    "reasonId-31": {
+        "pageTitle": "מה זה בדיוק",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "מה זה בדיוק"
+    },
+
+    "reasonId-41": {
+        "pageTitle": "מתי חנית?",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "מתי חנית?"
+    },
+    "reasonId-42": {
+        "pageTitle": "מעבר של לפחות 130 סמ על המדרכה",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "מעבר של לפחות 130 סמ על המדרכה"
+    },
+    "reasonId-44": {
+        "pageTitle": "החנייה הייתה בשכונת המגורים שלי או בסביבתה",
+        "iconSrc": "attentionProcessIcon",
+        "subTitle": "",
+        "btnTxt": "החנייה הייתה בשכונת המגורים שלי או בסביבתה"
+    }
+}

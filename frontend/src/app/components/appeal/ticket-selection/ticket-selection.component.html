@@ -1,0 +1,15 @@
+<div class="mdl-wizard-head">
+    <div class="mdl-page-headlines">
+        <h1 class="title primary">הערעורים שלי</h1>
+        <rp-button type="submit" (click)="createNewTicket()">הגשת ערעור חדש</rp-button>
+    </div>
+    <ul class="tickets" *ngIf="inited && tickets.length">
+        <li class="ticket" *ngFor="let ticket of tickets">
+            <app-ticket-selection-item [ticket]="ticket" (ticketDeleted)="onTicketDeleted(ticket.id)"></app-ticket-selection-item>
+        </li>
+    </ul>
+    <div class="loading" *ngIf="loadingTickets">
+        <mat-spinner class="spinner"></mat-spinner>
+    </div>
+</div>
+<preview-pdf [previewPdfUrl]="previewPdfUrl"></preview-pdf>

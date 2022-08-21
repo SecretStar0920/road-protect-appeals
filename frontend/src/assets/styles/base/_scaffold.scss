@@ -1,0 +1,34 @@
+html {
+    font-size: $font-rem-resize;
+}
+
+body {
+    color: color(type);
+    font-family: $base-font, $fallback-font;
+    font-size: $type-reset;
+
+    @include media-min(lg) {
+        background-color: $color-stk-polar-alt;
+    }
+}
+
+html,
+body {
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+    font-size: inherit;
+    font-weight: $weight-bold;
+
+    &,
+    &:hover,
+    &:active {
+        color: color(primary);
+    }
+}
+
+button:not([disabled]) {
+    cursor: pointer;
+}

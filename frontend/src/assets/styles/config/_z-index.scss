@@ -1,0 +1,10 @@
+// z-index hierarchy
+$z-index-dropdown: 1000 !default;
+$z-index-popup: 2000 !default;
+$z-index-menu-dropdown: 9000 !default;
+
+$z-map: (
+    dropdown: $z-index-dropdown,
+    popup: $z-index-popup,
+    menu-dropdown: $z-index-menu-dropdown,
+);

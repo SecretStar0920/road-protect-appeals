@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: redis
+    namespace: production
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: rp-appeals
+            type: redis
+            env: prod
+    template:
+        metadata:
+            labels:
+                app: rp-appeals
+                type: redis
+                env: prod
+        spec:
+            containers:
+                - image: redis:5
+                  name: redis
+                  ports:
+                      - containerPort: 6379
+                        name: entry
+                        protocol: TCP
+                  livenessProbe:
+                      tcpSocket:
+                          port: 6379
+                      initialDelaySeconds: 5
+                      periodSeconds: 10
+                  readinessProbe:
+                      tcpSocket:
+                          port: 6379
+                      initialDelaySeconds: 5
+                      periodSeconds: 10
+                  volumeMounts:
+                      - name: redis-data
+                        mountPath: /data
+                        subPath: data
+            volumes:
+                - name: redis-data
+                  persistentVolumeClaim:
+                      claimName: redis-pvc

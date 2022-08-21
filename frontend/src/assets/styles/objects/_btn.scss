@@ -1,0 +1,73 @@
+@mixin btn {
+    border: 1px solid;
+    font-family: inherit;
+}
+
+@mixin btn--primary {
+    border-color: color(primary);
+    background-color: color(primary);
+    color: color(light);
+
+    &[disabled='true'] {
+        opacity: 0.3;
+        color: color(light);
+    }
+}
+
+@mixin btn--ghost {
+    border-color: color(primary);
+    color: color(primary);
+}
+
+@mixin btn--lg {
+    min-width: 240px;
+    height: 60px;
+    font-size: type(subtitle);
+    @include media-min(lg) {
+        min-width: 200px;
+    }
+}
+
+@mixin btn--sm {
+    min-width: 130px;
+    height: 40px;
+    font-size: type(subtitle);
+}
+
+@mixin btn--round {
+    border-radius: 24px;
+}
+
+@mixin btn-link {
+    text-decoration: underline;
+    color: color(primary);
+    font-size: type(text);
+}
+
+.btn {
+    @include btn;
+
+    &--primary {
+        @include btn--primary;
+    }
+
+    &--ghost {
+        @include btn--ghost;
+    }
+
+    &--round {
+        @include btn--round;
+    }
+
+    &--lg {
+        @include btn--lg;
+    }
+}
+
+.btn-link {
+    @include btn-link;
+
+    &--bold {
+        font-weight: $weight-bold;
+    }
+}

@@ -1,0 +1,68 @@
+$intro: (
+    background-image: url('#{$path-image + $image-intro-bg-mobile}'),
+    background-position: center top spacing(1),
+    pseudo-background: (
+        height: 268px,
+    ),
+    min-lg: (
+        margin-top: - spacing(2),
+        background-image: url('#{$path-image + $image-intro-bg-desktop}'),
+        background-position: center top spacing(2),
+        min-height: 430px,
+    ),
+    slider: (
+        transform: translateX(0),
+        transition: transform $timing-default $transition-default,
+        margin-bottom: spacing(2),
+    ),
+    item: (
+        width: 100vw,
+        min-lg: (
+            width: $content-width-min-lg,
+        ),
+    ),
+);
+
+.intro {
+    display: flex;
+    position: relative;
+    flex-grow: 1;
+    justify-content: flex-start;
+    height: 100%;
+    overflow: hidden;
+
+    @include media-min(lg) {
+        flex-grow: 0;
+        margin-top: map-deep-get($intro, min-lg, margin-top);
+        background-image: map-deep-get($intro, min-lg, background-image);
+        background-repeat: no-repeat;
+        background-position: map-deep-get($intro, min-lg, background-position);
+        min-height: map-deep-get($intro, min-lg, min-height);
+    }
+
+    &::before {
+        @include media-max(lg) {
+            position: absolute;
+            background-image: map-deep-get($intro, background-image);
+            background-repeat: no-repeat;
+            background-position: map-deep-get($intro, background-position);
+            width: 100%;
+            height: map-deep-get($intro, pseudo-background, height);
+            content: '';
+        }
+    }
+
+    &__slider {
+        display: flex;
+        transform: map-deep-get($intro, slider, transform);
+        transition: map-deep-get($intro, slider, transition);
+        margin-bottom: map-deep-get($intro, slider, margin-bottom);
+    }
+
+    &__item {
+        width: map-deep-get($intro, item, width);
+        @include media-min(lg) {
+            width: map-deep-get($intro, item, min-lg, width);
+        }
+    }
+}

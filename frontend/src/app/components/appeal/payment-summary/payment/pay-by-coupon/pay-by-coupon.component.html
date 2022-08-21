@@ -1,0 +1,26 @@
+<div class="pay-by-coupon">
+    <form
+        *ngIf="!couponValid && !submittedCoupon"
+        [formGroup]="couponForm"
+        class="form-container form-container--condensed-min-lg column-grow"
+    >
+        <div class="form-body">
+            <div class="form-row">
+                <div class="form-field">
+                    <label class="form-label">
+                        <div class="form-label__text">קופון</div>
+                        <mat-form-field appearance="outline">
+                            <input type="text" matInput formControlName="coupon" maxlength="20" autofocus />
+                            <mat-error>שדה נדרש</mat-error>
+                        </mat-form-field>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="mdl-page-footer">
+            <rp-button type="submit" (click)="applyCoupon()" [disabled]="!couponForm.valid">שלח</rp-button>
+        </div>
+    </form>
+    <app-payment-success *ngIf="couponValid"></app-payment-success>
+    <app-payment-error *ngIf="!couponValid && submittedCoupon" (goBack)="reset()"></app-payment-error>
+</div>

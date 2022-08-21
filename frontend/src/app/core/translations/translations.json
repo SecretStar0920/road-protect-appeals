@@ -1,0 +1,15 @@
+{
+    "fullName": "שם מקבל הדוח",
+    "phone": "מספר נייד",
+    "id": "תעודת זהות",
+    "email": "אימייל  ",
+    "fullAddress": "כתובת מלאה",
+
+    "reportCity": "עיר הדוח",
+    "reportDate": "תאריך הדוח",
+    "reportTime": "שעת הדוח",
+    "reportStreet": "רחוב הדוח",
+    "vehicleNumber": "מספר הרכב",
+    "fullVehicleDetails": "סוג הרכב",
+    "amountDue": "הסכום לתשלום"
+}

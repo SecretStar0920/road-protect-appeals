@@ -1,0 +1,101 @@
+$form-field: (
+    border-radius: map-deep-get($radius, small),
+    border-width: 1px,
+    flex: (
+        box-shadow: 0 1px 4px 0 rgba(color(dark), 0.2),
+        height: $form-field-height,
+    ),
+    outline: (
+        color: color(control),
+    ),
+    subscript-wrapper: (
+        font-size: type(body),
+    ),
+    input: (
+        caret-error: color(error),
+    ),
+    error: (
+        font-size: type(body),
+    ),
+);
+
+.mat-form-field {
+    .form-field & {
+        min-width: 100%;
+        caret-color: inherit;
+    }
+}
+
+.mat-form-field-infix {
+    .form-field & {
+        border-top: 0;
+        width: inherit;
+    }
+}
+
+.mat-form-field-flex {
+    .form-field & {
+        align-items: center;
+        border-radius: map-deep-get($form-field, border-radius);
+        box-shadow: map-deep-get($form-field, flex, box-shadow);
+        height: map-deep-get($form-field, flex, height);
+        overflow: hidden;
+    }
+}
+
+.mat-form-field-outline {
+    .form-field .mat-form-field-appearance-outline & {
+        top: 0;
+    }
+}
+
+[dir='rtl'] .mat-form-field-appearance-outline .mat-form-field-outline-start {
+    .form-field & {
+        border-radius: 0 map-deep-get($form-field, border-radius) map-deep-get($form-field, border-radius) 0;
+    }
+}
+
+[dir='rtl'] .mat-form-field-appearance-outline .mat-form-field-outline-end {
+    .form-field & {
+        border-radius: map-deep-get($form-field, border-radius) 0 0 map-deep-get($form-field, border-radius);
+    }
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-thick,
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    .form-field & {
+        color: map-deep-get($form-field, outline, color);
+    }
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-end,
+.mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-gap,
+.mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-start {
+    .form-field & {
+        border-width: map-deep-get($form-field, border-width);
+    }
+}
+
+.mat-form-field-subscript-wrapper {
+    .form-field .mat-form-field-appearance-outline & {
+        padding: 0;
+        font-size: map-deep-get($form-field, subscript-wrapper, font-size);
+    }
+}
+
+.mat-input-element {
+    .form-field & {
+        caret-color: inherit;
+    }
+
+    .form-field .mat-form-field-invalid &,
+    .form-field .mat-form-field-warn & {
+        caret-color: map-deep-get($form-field, input, caret-error);
+    }
+}
+
+.mat-error {
+    .form-field & {
+        font-size: map-deep-get($form-field, error, font-size);
+    }
+}

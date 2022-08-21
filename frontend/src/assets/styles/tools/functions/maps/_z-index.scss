@@ -1,0 +1,10 @@
+// Z-INDEX
+@function z-map($keys...) {
+    $map: $z-map;
+
+    @if $map {
+        @return map-deep-get($map, $keys...);
+    } @else {
+        @error "avalilable keys are defined in '$z-map' map";
+    }
+}

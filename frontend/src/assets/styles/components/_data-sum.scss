@@ -1,0 +1,70 @@
+$data-sum: (
+    padding: spacing(0.5),
+    margin-bottom: spacing(2),
+    row: (
+        margin-bottom: spacing(1),
+        data: (
+            padding-x: spacing(2),
+        ),
+    ),
+    edit: (
+        font-size: 17px,
+        margin-left: 3px,
+    ),
+    key: (
+        margin-left: spacing(1),
+        width: 40%,
+        font-weight: $weight-bold,
+    ),
+    value: (
+        width: 60%,
+    ),
+    editable: (
+        border: 1px solid color(primary),
+        radius: map-deep-get($radius, small),
+        shadow: 0 1px 5px 0 rgba(color(dark), 0.2),
+    ),
+);
+
+.data-sum {
+    padding: map-deep-get($data-sum, padding);
+
+    &:not(:last-child) {
+        margin-bottom: map-deep-get($data-sum, margin-bottom);
+    }
+
+    &__row {
+        display: flex;
+
+        &:not(:last-child) {
+            margin-bottom: map-deep-get($data-sum, row, margin-bottom);
+        }
+
+        &--data {
+            padding-right: map-deep-get($data-sum, row, data, padding-x);
+            padding-left: map-deep-get($data-sum, row, data, padding-x);
+        }
+    }
+
+    &__edit {
+        margin-left: map-deep-get($data-sum, edit, margin-left);
+        cursor: pointer;
+        font-size: map-deep-get($data-sum, edit, font-size);
+    }
+
+    &__key {
+        margin-left: map-deep-get($data-sum, key, margin-left);
+        width: map-deep-get($data-sum, key, width);
+        font-weight: map-deep-get($data-sum, key, font-weight);
+    }
+
+    &__value {
+        width: map-deep-get($data-sum, value, width);
+    }
+
+    &--editable {
+        border: map-deep-get($data-sum, editable, border);
+        border-radius: map-deep-get($data-sum, editable, radius);
+        box-shadow: map-deep-get($data-sum, editable, shadow);
+    }
+}

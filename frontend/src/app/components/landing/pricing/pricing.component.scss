@@ -1,0 +1,82 @@
+@import '../../../../assets/styles/module-dependencies';
+
+.pricing {
+    .intro {
+        min-height: 100px;
+    }
+
+    .mdl-wizard-head {
+        @include mdl-wizard-head();
+    }
+
+    .mdl-page-headlines {
+        $this-map: (
+            text-align: center,
+        );
+        @include mdl-headlines($this-map);
+    }
+
+    .mdl-page-footer {
+        @include mdl-footer();
+    }
+
+    .page {
+        margin: 40px 120px;
+    }
+
+    .row.content {
+        background-color: #f4f7f7 !important;
+        margin: 40px 0;
+        padding-bottom: 20px;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+
+        > * {
+            margin: 20px 0;
+        }
+
+        .button {
+            text-align: center;
+            border: 1px solid $color-brand-primary;
+            color: $color-brand-primary;
+            pointer-events: none;
+        }
+
+        .cost {
+            color: $color-brand-primary;
+            font-size: 24px;
+        }
+
+        .description {
+            width: 60%;
+            hr {
+                width: 100%;
+                border: 0;
+                height: 1px;
+                margin: 22px 0;
+                background: rgba(0, 0, 0, 0.08);
+            }
+
+            h4 {
+                text-align: center;
+                font-size: 20px;
+                line-height: 27px;
+                margin-bottom: 14px;
+            }
+        }
+    }
+
+    .emoji {
+        display: inline !important;
+        border: none !important;
+        box-shadow: none !important;
+        height: 1em !important;
+        width: 1em !important;
+        margin: 0 0.07em !important;
+        vertical-align: -0.1em !important;
+        background: none !important;
+        padding: 0 !important;
+    }
+}

@@ -1,0 +1,26 @@
+[
+    {
+        "imgUrl": ".\\assets\\images\\paper-icon.svg",
+        "title": "לפני שנתחיל",
+        "text": ["זה הזמן לוודא שהדוח נמצא איתך", "כדי למלא את כל הפרטים הנחוצים"],
+        "btnText": "המשך",
+        "skip": true,
+        "textList": false
+    },
+    {
+        "imgUrl": ".\\assets\\images\\sand-icon.svg",
+        "title": "אז מה צריך לעשות?",
+        "text": ["מזינים את פרטי הדו\"ח", "בוחרים סיבת ערעור", "משלמים"],
+        "btnText": "המשך",
+        "skip": true,
+        "textList": true
+    },
+    {
+        "imgUrl": ".\\assets\\images\\pileofpaper-icon.svg",
+        "title": "איזה דוחות ניתן להגיש",
+        "text": ["דוחות שלא שולמו", "דוחות שהתקבלו לפני פחות מ-90 יום", "דוחות חניה"],
+        "btnText": "הדוח עלי, בואו נמשיך",
+        "skip": false,
+        "textList": true
+    }
+]

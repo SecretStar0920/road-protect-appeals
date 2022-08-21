@@ -1,0 +1,29 @@
+@import '../../../../../assets/styles/module-dependencies';
+
+.mdl-page-headlines {
+    @include mdl-headlines();
+}
+
+.mdl-page-footer {
+    $this-map: (
+        height: 106px,
+        max-lg: (
+            child-gap: spacing(1),
+            padding-bottom: spacing(2),
+        ),
+        min-lg: (
+            padding-top: spacing(2),
+            padding-bottom: spacing(6),
+            child-gap: spacing(12),
+        ),
+    );
+
+    @include mdl-footer($this-map);
+    .mdl-page-layout & {
+        justify-content: flex-end;
+    }
+}
+
+.mdl-page-layout {
+    @include mdl-master-detail();
+}

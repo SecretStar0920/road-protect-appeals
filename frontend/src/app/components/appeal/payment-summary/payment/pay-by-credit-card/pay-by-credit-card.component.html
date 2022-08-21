@@ -1,0 +1,8 @@
+<div class="pay-by-credit-card">
+    <iframe [src]="iframeUrl | safeUrl" frameborder="0" style="width: 100%; height: 570px;"></iframe>
+    <div class="mdl-page-footer">
+        <rp-button [routerLink]="['/appeal', 'summary', 'last-step']" [disabled]="!paymentSuccessful"
+            >המשך לשלב הבא
+        </rp-button>
+    </div>
+</div>

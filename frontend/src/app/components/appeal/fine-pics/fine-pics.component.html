@@ -1,0 +1,138 @@
+<app-appeal-flow-wrapper>
+    <div class="mdl-page-layout">
+        <div class="mdl-page-layout__headline">
+            <div class="mdl-page-headlines">
+                <h1 class="title primary">העלאת תמונות</h1>
+                <br />
+                <h2>רק קבצים מסוג תמונה מותרים (png, jpeg, jpg)</h2>
+            </div>
+        </div>
+        <div class="mdl-page-layout__content">
+            <form class="column-grow column-full">
+                <div class="column-grow">
+                    <div class="upload-image">
+                        <div class="upload-image__body">
+                            <input
+                                type="file"
+                                class="hidden"
+                                name="ticketPic"
+                                id="ticketImageInput"
+                                #ticketImageInput
+                                accept="image/*"
+                                (change)="processPic(ticketImageInput)"
+                            />
+                            <label class="upload-image__label" for="ticketImageInput">
+                                <div class="upload-image__icon">
+                                    <svg-icon src="{{ imgPathService?.uploadUiIcon }}" class="icon"></svg-icon>
+                                </div>
+                                <div class="upload-image__text primary">העלאת צילום דו"ח</div>
+                            </label>
+                        </div>
+                        <div *ngIf="uploadedFinePicsArray.length > 0" class="upload-image__data">
+                            <div *ngFor="let item of uploadedFinePicsArray; let i = index">
+                                <!-- duplication only for mock example -->
+                                <div class="upload-image__file">
+                                    <!-- b start -->
+                                    <span class="upload-image__file-icon">
+                                        <svg-icon src="{{ imgPathService?.thumbUiIcon }}" class="icon"></svg-icon>
+                                    </span>
+                                    <span class="upload-image__file-text">{{ item.fileName }}</span>
+                                    <button
+                                        class="btn-icon upload-image__file-remove"
+                                        (click)="removePicFromTicketPicArray(i)"
+                                    >
+                                        <svg-icon src="{{ imgPathService?.closeUiIcon }}" class="icon"></svg-icon>
+                                    </button>
+                                    <!-- b /end -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="upload-image__file" *ngIf="loadingFine">
+                            <!-- implement ng if switch a with b -->
+                            <!-- a start -->
+                            <span class="upload-image__file-icon">
+                                <svg-icon src="{{ imgPathService?.thumbUiIcon }}" class="icon"></svg-icon>
+                            </span>
+                            <div class="upload-image__file-progress">
+                                <mat-progress-bar class="custom-progress" mode="query"></mat-progress-bar>
+                            </div>
+                            <!-- a /end -->
+                        </div>
+                        <h3 class="upload-image__subtitle subtitle">יש לך עוד תמונות שיכולות לעזור?</h3>
+                        <h3 class="upload-image__subtitle subtitle">העלה גם אותן</h3>
+                    </div>
+                    <div class="upload-image">
+                        <div class="upload-image__body">
+                            <input
+                                type="file"
+                                class="hidden"
+                                name="otherPic"
+                                id="otherPic"
+                                #otherPic
+                                accept="image/*"
+                                (change)="processPic(otherPic, false)"
+                            />
+                            <label class="upload-image__label" for="otherPic">
+                                <div class="upload-image__icon">
+                                    <svg-icon src="{{ imgPathService?.uploadUiIcon }}" class="icon"></svg-icon>
+                                </div>
+                                <div class="upload-image__text primary">העלאת תמונות נוספות</div>
+                            </label>
+                        </div>
+                        <div *ngIf="otherPicsArray.length > 0" class="upload-image__data">
+                            <div *ngFor="let item of otherPicsArray; let i = index">
+                                <div class="upload-image__file">
+                                    <!-- b start -->
+                                    <span class="upload-image__file-icon">
+                                        <svg-icon src="{{ imgPathService?.thumbUiIcon }}" class="icon"></svg-icon>
+                                    </span>
+                                    <span class="upload-image__file-text">{{ item.fileName }}</span>
+                                    <button
+                                        class="btn-icon upload-image__file-remove"
+                                        (click)="removePicFromOtherPicsArray(i)"
+                                    >
+                                        <svg-icon src="{{ imgPathService?.closeUiIcon }}" class="icon"></svg-icon>
+                                    </button>
+                                    <!-- b /end -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="upload-image__file" *ngIf="loadingOther">
+                            <span class="upload-image__file-icon">
+                                <svg-icon src="{{ imgPathService?.thumbUiIcon }}" class="icon"></svg-icon>
+                            </span>
+                            <div class="upload-image__file-progress">
+                                <mat-progress-bar class="custom-progress" mode="query"></mat-progress-bar>
+                            </div>
+                            <!--  switch: a,b
+                    <span class="upload-image__file-icon">
+                      <svg-icon src="{{ imgPathService?.thumbUiIcon}}" class="icon"></svg-icon>
+                    </span>
+                    <span class="upload-image__file-text">{{item.file.name}}</span>
+                    <button class="upload-image__file-remove" (click)="removePicFromOtherPicsArray(i)">x</button>
+                    -->
+                        </div>
+                    </div>
+                </div>
+                <div class="mdl-page-footer" [ngSwitch]="ticketService.routeToEnd()">
+                    <button
+                        mat-button
+                        class="btn-mat-custom"
+                        [disabled]="!uploadedFinePicsArray.length"
+                        (click)="emitPicsToHolder()"
+                        [routerLink]="['/appeal', 'summary']"
+                        *ngSwitchCase="true"
+                    >
+                        חזור לסיכום
+                    </button>
+                    <rp-button
+                        [disabled]="!uploadedFinePicsArray.length"
+                        [onClick]="onSubmit.bind(this)"
+                        *ngSwitchDefault
+                        >המשך לשלב הבא
+                    </rp-button>
+                </div>
+            </form>
+        </div>
+    </div>
+</app-appeal-flow-wrapper>
